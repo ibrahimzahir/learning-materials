@@ -1,0 +1,3139 @@
+sql
+
+# 100 Days of SQL
+
+The SQL ORDER BY clause is used to sort the results of a SELECT statement in either ascending or descending order based on one or more columns. The basic syntax of a SELECT statement with an ORDER BY clause is:
+
+```
+sqlCopy code
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column_name [ASC|DESC];
+
+```
+
+In this syntax, column1, column2, etc. are the names of the columns that you want to retrieve data from, and table_name is the name of the table that you want to retrieve data from. The column_name specifies the column or columns that you want to sort the results by, and the optional ASC or DESC keyword specifies the order in which you want to sort the results.
+
+Here's an example of a SELECT statement with an ORDER BY clause that retrieves all the rows from a table named "employees" and sorts them in ascending order based on the "last_name" column:
+
+```
+sqlCopy code
+SELECT * FROM employees
+ORDER BY last_name ASC;
+
+```
+
+In this example, the ORDER BY clause is used to sort the data in ascending order based on the "last_name" column.
+
+You can also specify multiple columns to sort by in the ORDER BY clause. When you do this, the results are first sorted based on the first column, and then by the second column if there are any ties in the first column, and so on. Here's an example:
+
+```
+sqlCopy code
+SELECT * FROM employees
+ORDER BY department_id ASC, salary DESC;
+
+```
+
+In this example, the ORDER BY clause is used to sort the data first by the "department_id" column in ascending order, and then by the "salary" column in descending order.
+
+The ORDER BY clause is a powerful tool for sorting and organizing data in a SELECT statement. It allows you to control the order in which the results are displayed, making it easier to analyze and interpret the data.
+
+This 100 Days of SQL challenge is a structured approach to learn and improve your SQL skills. The challenge involves daily practice exercises and challenges over the course of 100 days. It is a great way for beginners and experienced SQL users to enhance their knowledge and proficiency with the language. By committing to this challenge, individuals can make significant progress in their SQL skills.
+
+### Day 01 - What is SQL?
+
+SQL (Structured Query Language) is a programming language used to manage and manipulate data stored in relational database management systems (RDBMS). It is a standard language used by most relational database systems, including Oracle, Microsoft SQL Server, MySQL, PostgreSQL, and many others.
+
+SQL allows you to create, modify, and delete database tables, as well as insert, update, and delete data within those tables. You can also retrieve data from tables using SQL queries, which can be used to filter, sort, and aggregate data based on specific criteria.
+
+SQL is divided into two main categories: Data Definition Language (DDL) and Data Manipulation Language (DML). DDL is used to create, alter, and delete database objects such as tables, indexes, and constraints. DML is used to insert, update, delete, and query data within those objects.
+
+SQL is a powerful and flexible language that can handle large amounts of data and complex queries. It is widely used in industries such as finance, healthcare, e-commerce, and many others for managing and analyzing data.
+
+### SELECT Statement
+
+The SQL SELECT statement is used to retrieve data from one or more tables in a database. It is the most commonly used statement in SQL and is used to filter, sort, and group data based on specific criteria. The basic syntax of a SELECT statement is:
+
+```bash
+SELECT column1, column2, ...
+FROM table_name;
+```
+
+In this syntax, column1, column2, etc. are the names of the columns that you want to retrieve data from, and table_name is the name of the table that you want to retrieve data from.
+
+Here's an example of a SELECT statement that retrieves all columns from a table named "employees":
+
+```bash
+SELECT * FROM employees;
+```
+
+In this example, the * (asterisk) symbol is used to retrieve all columns from the "employees" table.
+
+You can also specify conditions to filter the data that is retrieved by using the WHERE clause. Here's an example:
+
+```bash
+SELECT * FROM employees
+WHERE department = 'Sales';
+```
+
+In this example, the WHERE clause is used to retrieve only the rows from the "employees" table where the department column equals 'Sales'.
+
+You can also use the ORDER BY clause to sort the data that is retrieved. Here's an example:
+
+```bash
+SELECT * FROM employees
+ORDER BY last_name ASC;
+```
+
+In this example, the ORDER BY clause is used to sort the data in ascending order by the "last_name" column.
+
+In addition to filtering and sorting data, you can also use the SELECT statement to perform calculations on the data using aggregate functions such as SUM, COUNT, AVG, MIN, and MAX. Here's an example:
+
+```bash
+SELECT department, AVG(salary) as avg_salary
+FROM employees
+GROUP BY department;
+```
+
+In this example, the AVG function is used to calculate the average salary for each department in the "employees" table, and the GROUP BY clause is used to group the data by department.
+
+These are just a few examples of how the SQL SELECT statement can be used to retrieve and manipulate data in a database. With the SELECT statement, you can create complex queries to retrieve and analyze data based on specific criteria.
+
+## Day 02 - SELECT DISTINCT Statement
+
+The SQL SELECT DISTINCT statement is used to retrieve only unique values from a table. It is commonly used to find all the unique values in a particular column or set of columns in a table. The basic syntax of a SELECT DISTINCT statement is:
+
+```bash
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+```
+
+In this syntax, column1, column2, etc. are the names of the columns that you want to retrieve unique values from, and table_name is the name of the table that you want to retrieve data from.
+
+Here's an example of a SELECT DISTINCT statement that retrieves all unique values from a column named "country" in a table named "customers":
+
+```bash
+SELECT DISTINCT country FROM customers;
+```
+
+In this example, the SELECT DISTINCT statement is used to retrieve all the unique values from the "country" column in the "customers" table.
+
+You can also use the SELECT DISTINCT statement with multiple columns to retrieve unique combinations of values from those columns. Here's an example:
+
+```bash
+SELECT DISTINCT city, country FROM customers;
+```
+
+In this example, the SELECT DISTINCT statement is used to retrieve all unique combinations of the "city" and "country" columns from the "customers" table.
+
+The SELECT DISTINCT statement is useful when you want to retrieve only unique values from a table, without retrieving any duplicates. It is commonly used to generate a list of all the unique values in a particular column, which can then be used for further analysis or processing.
+
+## Day 03 - **SQL WHERE Clause**
+
+WHERE clause is used to filter data based on a specified condition or set of conditions. It is used in conjunction with the SELECT statement to retrieve only the rows from a table that meet the specified criteria. The basic syntax of a SELECT statement with a WHERE clause is:
+
+```bash
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+In this syntax, column1, column2, etc. are the names of the columns that you want to retrieve data from, and table_name is the name of the table that you want to retrieve data from. The condition is a logical expression that evaluates to true or false for each row in the table.
+
+Here's an example of a SELECT statement with a WHERE clause that retrieves all the rows from a table named "customers" where the "country" column is equal to 'USA':
+
+```bash
+SELECT * FROM customers
+WHERE country = 'USA';
+```
+
+In this example, the WHERE clause is used to filter the data and retrieve only the rows where the "country" column is equal to 'USA'.
+
+You can also use the WHERE clause with other logical operators such as < (less than), > (greater than), <= (less than or equal to), >= (greater than or equal to), <> (not equal to), AND, OR, and NOT. Here's an example:
+
+```bash
+SELECT * FROM orders
+WHERE customer_id = 1234 AND order_date >= '2022-01-01';
+```
+
+In this example, the WHERE clause is used to retrieve only the rows from the "orders" table where the "customer_id" column is equal to 1234 AND the "order_date" column is greater than or equal to January 1, 2022.
+
+The WHERE clause is a powerful tool for filtering and selecting data from a table based on specific criteria. It allows you to retrieve only the data that is relevant to your analysis or processing, making it easier to work with large amounts of data.
+
+## Day 04 - logical operators - AND, OR, and NOT
+
+SQL provides three logical operators - AND, OR, and NOT - that can be used in conjunction with the WHERE clause to filter data based on multiple conditions. These operators are used to combine one or more conditions to create more complex conditions for filtering data. Here's a brief overview of each operator:
+
+1. AND - The AND operator is used to retrieve rows that satisfy multiple conditions. If you specify multiple conditions separated by the AND operator, all the conditions must be true for the row to be retrieved.
+
+Example:
+
+```bash
+SELECT * FROM orders
+WHERE customer_id = 1234 AND order_date >= '2022-01-01';
+```
+
+This SQL statement retrieves all orders where the customer ID is 1234 and the order date is on or after January 1, 2022.
+
+1. OR - The OR operator is used to retrieve rows that satisfy at least one of the specified conditions. If you specify multiple conditions separated by the OR operator, the row will be retrieved if any one of the conditions is true.
+
+Example:
+
+```bash
+SELECT * FROM orders
+WHERE customer_id = 1234 OR order_date >= '2022-01-01';
+```
+
+This SQL statement retrieves all orders where the customer ID is 1234 OR the order date is on or after January 1, 2022.
+
+1. NOT - The NOT operator is used to retrieve rows that do not satisfy a specified condition. If you specify a condition after the NOT operator, the row will be retrieved only if the condition is false.
+
+Example:
+
+```bash
+SELECT * FROM customers
+WHERE NOT country = 'USA';
+```
+
+This SQL statement retrieves all customers where the country is not 'USA'.
+
+By using the AND, OR, and NOT operators in combination with the WHERE clause, you can create more complex conditions to filter and retrieve data from a table.
+
+## Day 05 - SQL ORDER BY
+
+The SQL ORDER BY clause is used to sort the results of a SELECT statement in either ascending or descending order based on one or more columns. The basic syntax of a SELECT statement with an ORDER BY clause is:
+
+```
+
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column_name [ASC|DESC];
+
+```
+
+In this syntax, column1, column2, etc. are the names of the columns that you want to retrieve data from, and table_name is the name of the table that you want to retrieve data from. The column_name specifies the column or columns that you want to sort the results by, and the optional ASC or DESC keyword specifies the order in which you want to sort the results.
+
+Here's an example of a SELECT statement with an ORDER BY clause that retrieves all the rows from a table named "employees" and sorts them in ascending order based on the "last_name" column:
+
+```
+
+SELECT * FROM employees
+ORDER BY last_name ASC;
+
+```
+
+In this example, the ORDER BY clause is used to sort the data in ascending order based on the "last_name" column.
+
+You can also specify multiple columns to sort by in the ORDER BY clause. When you do this, the results are first sorted based on the first column, and then by the second column if there are any ties in the first column, and so on. Here's an example:
+
+```
+
+SELECT * FROM employees
+ORDER BY department_id ASC, salary DESC;
+
+```
+
+In this example, the ORDER BY clause is used to sort the data first by the "department_id" column in ascending order, and then by the "salary" column in descending order.
+
+The ORDER BY clause is a powerful tool for sorting and organizing data in a SELECT statement. It allows you to control the order in which the results are displayed, making it easier to analyze and interpret the data.
+
+## Day 06 - INSERT INTO statement
+
+SQL INSERT INTO statement is used to insert new records into a table. The basic syntax of an INSERT INTO statement is:
+
+```
+
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+```
+
+In this syntax, table_name is the name of the table that you want to insert records into, and column1, column2, column3, etc. are the names of the columns that you want to insert data into. The VALUES keyword is used to specify the values to be inserted into each column.
+
+Here's an example of an INSERT INTO statement that inserts a new record into a table named "employees":
+
+```
+
+INSERT INTO employees (first_name, last_name, email, hire_date)
+VALUES ('John', 'Doe', 'johndoe@email.com', '2022-03-31');
+
+```
+
+In this example, the INSERT INTO statement is used to insert a new record into the "employees" table with the values 'John' for the first_name column, 'Doe' for the last_name column, '**[johndoe@email.com](mailto:johndoe@email.com)**' for the email column, and '2022-03-31' for the hire_date column.
+
+You can also insert multiple records into a table with a single INSERT INTO statement. To do this, you simply separate each set of values with a comma. Here's an example:
+
+```
+
+INSERT INTO employees (first_name, last_name, email, hire_date)
+VALUES
+('Jane', 'Smith', 'janesmith@email.com', '2022-03-30'),
+('Bob', 'Johnson', 'bobjohnson@email.com', '2022-03-29');
+
+```
+
+In this example, the INSERT INTO statement inserts two new records into the "employees" table with the specified values.
+
+The INSERT INTO statement is a fundamental SQL statement that is used to add new records to a table. It is commonly used in conjunction with other SQL statements, such as SELECT and UPDATE, to manage and manipulate data in a database.
+
+## Day 07 - **SQL NULL Values**
+
+In SQL, NULL is a special marker used to indicate that a data value does not exist in the database. It is not the same as an empty string or a zero value. A NULL value indicates that the value is unknown, missing, or not applicable.
+
+When creating tables in SQL, you can specify which columns are allowed to contain NULL values by using the NULL or NOT NULL keywords in the column definition. If a column is defined as NULL, it can contain a NULL value. If a column is defined as NOT NULL, it cannot contain a NULL value.
+
+Here are some examples of using NULL values in SQL:
+
+1. Inserting a NULL value into a column:
+
+```
+
+INSERT INTO employees (first_name, last_name, email, hire_date, salary)
+VALUES ('John', 'Doe', NULL, '2022-03-31', 50000);
+
+```
+
+In this example, the email column is allowed to contain NULL values, so we insert a NULL value for the email address of the employee.
+
+1. Filtering NULL values in a WHERE clause:
+
+```
+
+SELECT * FROM employees
+WHERE email IS NULL;
+
+```
+
+In this example, we use the IS NULL operator to filter out all employees who do not have an email address.
+
+1. Handling NULL values in calculations:
+
+```
+
+SELECT (salary * 0.10) AS bonus FROM employees;
+
+```
+
+In this example, if an employee's salary is NULL, the result of the calculation will also be NULL. To handle this, you can use the COALESCE function to replace NULL values with a default value:
+
+```
+
+SELECT (COALESCE(salary, 0) * 0.10) AS bonus FROM employees;
+
+```
+
+In this example, if an employee's salary is NULL, the COALESCE function will replace it with 0, and the calculation will still produce a result.
+
+Working with NULL values is an important aspect of SQL data management. Understanding how to handle NULL values properly can help you avoid errors and ensure that your queries produce accurate results.
+
+## Day 08 - **SQL UPDATE Statement**
+
+The SQL UPDATE statement is used to modify existing records in a table. The basic syntax of an UPDATE statement is:
+
+```
+
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+```
+
+In this syntax, table_name is the name of the table that you want to update records in, and column1, column2, etc. are the names of the columns that you want to update. The SET keyword is used to specify the new values to be assigned to each column. The WHERE clause is used to specify the condition that must be met in order for the update to occur. If no WHERE clause is specified, all records in the table will be updated.
+
+Here's an example of an UPDATE statement that updates the salary of an employee in a table named "employees":
+
+```
+
+UPDATE employees
+SET salary = 60000
+WHERE id = 1234;
+
+```
+
+In this example, the UPDATE statement is used to update the salary of the employee with an ID of 1234 to 60000.
+
+You can also update multiple columns at once with a single UPDATE statement. Here's an example:
+
+```
+
+UPDATE employees
+SET salary = 60000, job_title = 'Manager'
+WHERE id = 1234;
+
+```
+
+In this example, the UPDATE statement updates both the salary and job_title columns of the employee with an ID of 1234.
+
+The UPDATE statement is a fundamental SQL statement that is used to modify existing records in a table. It is commonly used in conjunction with other SQL statements, such as SELECT and JOIN, to manage and manipulate data in a database. When using the UPDATE statement, it's important to specify the WHERE clause carefully to ensure that only the intended records are updated.
+
+## Day 09 - DELETE statement
+
+The SQL DELETE statement is used to delete one or more records from a table. The basic syntax for the DELETE statement is as follows:
+
+```
+
+DELETE FROM table_name WHERE condition;
+
+```
+
+Here, **`table_name`** is the name of the table from which you want to delete records, and **`condition`** specifies the criteria that must be met in order for the record to be deleted.
+
+For example, suppose you have a table called **`customers`** with columns **`customer_id`**, **`first_name`**, **`last_name`**, and **`email_address`**. If you want to delete all records where the **`customer_id`** is equal to 5, you would use the following SQL statement:
+
+```
+
+DELETE FROM customers WHERE customer_id = 5;
+
+```
+
+This statement will delete all records in the **`customers`** table where the **`customer_id`** is equal to 5.
+
+It is important to be cautious when using the DELETE statement, as it permanently removes data from a table. You should always double-check the WHERE clause to ensure that you are only deleting the records you intend to delete.
+
+## Day 10 - **SQL TOP, LIMIT, FETCH FIRST or ROWNUM Clause**
+
+SQL provides different ways to limit the number of rows returned in a query, depending on the database management system being used. Here are some examples:
+
+1. **`TOP`** clause (used in SQL Server and Microsoft Access)
+The **`TOP`** clause is used to limit the number of rows returned by a query. The basic syntax is as follows:
+
+```
+
+SELECT TOP n column1, column2, ... FROM table_name WHERE condition;
+
+```
+
+Here, **`n`** is the maximum number of rows to be returned by the query, and **`column1`**, **`column2`**, etc. are the names of the columns to be selected from the table.
+
+1. **`LIMIT`** clause (used in MySQL and PostgreSQL)
+The **`LIMIT`** clause is used to limit the number of rows returned by a query. The basic syntax is as follows:
+
+```
+
+SELECT column1, column2, ... FROM table_name WHERE condition LIMIT n;
+
+```
+
+Here, **`n`** is the maximum number of rows to be returned by the query, and **`column1`**, **`column2`**, etc. are the names of the columns to be selected from the table.
+
+1. **`FETCH FIRST`** clause (used in Oracle and IBM DB2)
+The **`FETCH FIRST`** clause is used to limit the number of rows returned by a query. The basic syntax is as follows:
+
+```
+
+SELECT column1, column2, ... FROM table_name WHERE condition FETCH FIRST n ROWS ONLY;
+
+```
+
+Here, **`n`** is the maximum number of rows to be returned by the query, and **`column1`**, **`column2`**, etc. are the names of the columns to be selected from the table.
+
+1. **`ROWNUM`** (used in Oracle)
+The **`ROWNUM`** is used to limit the number of rows returned by a query. The basic syntax is as follows:
+
+```
+
+SELECT column1, column2, ... FROM table_name WHERE ROWNUM <= n;
+
+```
+
+Here, **`n`** is the maximum number of rows to be returned by the query, and **`column1`**, **`column2`**, etc. are the names of the columns to be selected from the table.
+
+Note that the specific syntax and functionality of these clauses may vary slightly depending on the database management system being used.
+
+## Day 11 - SQL MIN() and MAX() Functions
+
+In SQL, the **`MIN()`** and **`MAX()`** functions are used to find the minimum and maximum values of a column in a table, respectively. These functions are often used in combination with the **`SELECT`** statement to retrieve summary information about data.
+
+The basic syntax for using the **`MIN()`** and **`MAX()`** functions is as follows:
+
+```
+
+SELECT MIN(column_name) FROM table_name;
+SELECT MAX(column_name) FROM table_name;
+
+```
+
+Here, **`column_name`** is the name of the column for which you want to find the minimum or maximum value, and **`table_name`** is the name of the table that contains the column.
+
+For example, suppose you have a table called **`sales`** with columns **`product_name`** and **`sales_amount`**. If you want to find the minimum and maximum sales amounts for all products, you would use the following SQL statements:
+
+```
+
+SELECT MIN(sales_amount) FROM sales;
+SELECT MAX(sales_amount) FROM sales;
+
+```
+
+These statements will return the minimum and maximum sales amounts for all products in the **`sales`** table.
+
+Note that if the column specified in the **`MIN()`** or **`MAX()`** function contains null values, those values will be ignored in the calculation.
+
+## Day 12 - **SQL COUNT(), AVG() and SUM() Functions**
+
+In SQL, the **`COUNT()`**, **`AVG()`**, and **`SUM()`** functions are used to retrieve summary information about data in a table. These functions are often used in combination with the **`SELECT`** statement to calculate totals, averages, and counts.
+
+1. **`COUNT()`** function:
+The **`COUNT()`** function returns the number of rows that match a specified condition. The basic syntax is as follows:
+
+```
+
+SELECT COUNT(*) FROM table_name WHERE condition;
+
+```
+
+Here, **`*`** indicates that all rows in the table should be counted, and **`condition`** specifies the criteria for the rows to be included in the count.
+
+For example, suppose you have a table called **`customers`** with columns **`customer_id`**, **`first_name`**, **`last_name`**, and **`email_address`**. If you want to count the number of customers in the table, you would use the following SQL statement:
+
+```
+
+SELECT COUNT(*) FROM customers;
+
+```
+
+This statement will return the total number of rows in the **`customers`** table.
+
+1. **`AVG()`** function:
+The **`AVG()`** function returns the average value of a numeric column in a table. The basic syntax is as follows:
+
+```
+
+SELECT AVG(column_name) FROM table_name WHERE condition;
+
+```
+
+Here, **`column_name`** is the name of the numeric column for which you want to calculate the average, and **`condition`** specifies the criteria for the rows to be included in the calculation.
+
+For example, suppose you have a table called **`sales`** with columns **`product_name`** and **`sales_amount`**. If you want to find the average sales amount for all products, you would use the following SQL statement:
+
+```
+
+SELECT AVG(sales_amount) FROM sales;
+
+```
+
+This statement will return the average sales amount for all products in the **`sales`** table.
+
+1. **`SUM()`** function:
+The **`SUM()`** function returns the sum of the values in a numeric column in a table. The basic syntax is as follows:
+
+```
+
+SELECT SUM(column_name) FROM table_name WHERE condition;
+
+```
+
+Here, **`column_name`** is the name of the numeric column for which you want to calculate the sum, and **`condition`** specifies the criteria for the rows to be included in the calculation.
+
+For example, suppose you have a table called **`sales`** with columns **`product_name`** and **`sales_amount`**. If you want to find the total sales amount for all products, you would use the following SQL statement:
+
+```
+
+SELECT SUM(sales_amount) FROM sales;
+
+```
+
+This statement will return the total sales amount for all products in the **`sales`** table.
+
+## Day 13 - **SQL LIKE Operator**
+
+In SQL, the **`LIKE`** operator is used to search for patterns in a column of text data. The **`LIKE`** operator is often used in combination with wildcard characters to search for specific patterns.
+
+The basic syntax for using the **`LIKE`** operator is as follows:
+
+```
+
+SELECT column_name FROM table_name WHERE column_name LIKE pattern;
+
+```
+
+Here, **`column_name`** is the name of the column you want to search, **`table_name`** is the name of the table containing the column, and **`pattern`** is the search pattern you want to use.
+
+There are two wildcard characters that can be used with the **`LIKE`** operator:
+
+1. **`%`** (percent sign): This represents zero or more characters. For example, the pattern **`'%test%'`** would match any string that contains the word "test" anywhere in the column.
+2. **`_`** (underscore): This represents a single character. For example, the pattern **`'a_%'`** would match any string that starts with the letter "a" followed by any single character.
+
+For example, suppose you have a table called **`employees`** with columns **`employee_id`**, **`first_name`**, **`last_name`**, and **`email_address`**. If you want to find all employees whose email address ends with "@example.com", you would use the following SQL statement:
+
+```
+
+SELECT * FROM employees WHERE email_address LIKE '%@example.com';
+
+```
+
+This statement will return all rows from the **`employees`** table where the **`email_address`** column ends with "@example.com".
+
+## Day 14 - SQL IN Operator
+
+In SQL, the **`IN`** operator is used to specify multiple values in a **`WHERE`** clause. The **`IN`** operator allows you to specify a list of values, and the **`WHERE`** clause will return any rows where the specified column matches any of the values in the list.
+
+The basic syntax for using the **`IN`** operator is as follows:
+
+```
+
+SELECT column_name FROM table_name WHERE column_name IN (value1, value2, value3, ...);
+
+```
+
+Here, **`column_name`** is the name of the column you want to search, **`table_name`** is the name of the table containing the column, and **`value1`**, **`value2`**, **`value3`**, etc. are the values you want to search for.
+
+For example, suppose you have a table called **`employees`** with columns **`employee_id`**, **`first_name`**, **`last_name`**, and **`department`**. If you want to find all employees who work in the "Sales" or "Marketing" departments, you would use the following SQL statement:
+
+```
+
+SELECT * FROM employees WHERE department IN ('Sales', 'Marketing');
+
+```
+
+This statement will return all rows from the **`employees`** table where the **`department`** column matches either "Sales" or "Marketing".
+
+The **`IN`** operator can also be used with a subquery to search for values in another table. For example, suppose you have a table called **`sales`** with columns **`product_id`**, **`product_name`**, and **`price`**, and you want to find all products with a price higher than the average price. You could use the following SQL statement:
+
+```
+
+SELECT product_name, price FROM sales WHERE price > (SELECT AVG(price) FROM sales);
+
+```
+
+This statement will return all rows from the **`sales`** table where the **`price`** column is higher than the average price of all products in the **`sales`** table.
+
+## Day 15 - SQL BETWEEN Operator
+
+In SQL, the **`BETWEEN`** operator is used to specify a range of values in a **`WHERE`** clause. The **`BETWEEN`** operator allows you to specify a range of values for a column, and the **`WHERE`** clause will return any rows where the column value falls within that range.
+
+The basic syntax for using the **`BETWEEN`** operator is as follows:
+
+```
+
+SELECT column_name FROM table_name WHERE column_name BETWEEN value1 AND value2;
+
+```
+
+Here, **`column_name`** is the name of the column you want to search, **`table_name`** is the name of the table containing the column, and **`value1`** and **`value2`** are the two values that define the range.
+
+For example, suppose you have a table called **`employees`** with columns **`employee_id`**, **`first_name`**, **`last_name`**, **`department`**, and **`salary`**. If you want to find all employees with salaries between $50,000 and $100,000, you would use the following SQL statement:
+
+```
+
+SELECT * FROM employees WHERE salary BETWEEN 50000 AND 100000;
+
+```
+
+This statement will return all rows from the **`employees`** table where the **`salary`** column falls within the range of $50,000 to $100,000.
+
+Note that the **`BETWEEN`** operator is inclusive, meaning that it includes the values specified in the range. So in the example above, the SQL statement will return all employees with salaries of exactly $50,000 or $100,000, in addition to those with salaries between those values.
+
+You can also use the **`NOT BETWEEN`** operator to exclude rows that fall within a certain range, or you can use the **`BETWEEN`** operator with a **`NOT`** keyword to exclude rows that do not fall within a certain range.
+
+## Day 16 - SQL Aliases
+
+In SQL, an alias is a temporary name given to a table or column in a query. Aliases are commonly used to make column names more readable or to simplify complex queries.
+
+To create an alias for a table or column in a query, you can use the **`AS`** keyword followed by the desired alias name. Here's an example:
+
+```
+
+SELECT column1 AS alias1, column2 AS alias2 FROM table_name;
+
+```
+
+In this example, the **`SELECT`** statement returns two columns from a table called **`table_name`**, but the columns are given temporary aliases **`alias1`** and **`alias2`**.
+
+You can also use aliases to simplify complex queries that involve multiple tables. For example, if you want to join two tables called **`orders`** and **`customers`**, you can use aliases to refer to each table without having to type out the full table name every time. Here's an example:
+
+```
+
+SELECT o.order_id, c.customer_name
+FROM orders AS o
+INNER JOIN customers AS c ON o.customer_id = c.customer_id;
+
+```
+
+In this example, the **`orders`** and **`customers`** tables are given temporary aliases **`o`** and **`c`**, respectively. This makes it easier to refer to each table in the **`SELECT`** statement and the **`JOIN`** clause.
+
+Note that aliases are temporary and only apply to the current query. If you want to use the same alias in a different query, you'll need to define it again.
+
+## Day 17 - **SQL Joins**
+
+In SQL, a **`JOIN`** operation is used to combine rows from two or more tables based on a related column between them. The **`JOIN`** operation is a fundamental concept in SQL and is essential for querying data from multiple tables in a relational database.
+
+There are several types of **`JOIN`** operations available in SQL, including:
+
+- Inner Join: Returns only the rows that have matching values in both tables.
+- Left Join: Returns all the rows from the left table and the matched rows from the right table. If there is no match, the result will contain NULL values for the right table columns.
+- Right Join: Returns all the rows from the right table and the matched rows from the left table. If there is no match, the result will contain NULL values for the left table columns.
+- Full Outer Join: Returns all the rows from both tables, matching them where possible and adding NULL values where there is no match.
+
+The syntax for a **`JOIN`** operation depends on the type of join and the database system you're using. Here's an example of an inner join:
+
+```
+
+SELECT *
+FROM table1
+JOIN table2
+ON table1.column = table2.column;
+
+```
+
+In this example, **`table1`** and **`table2`** are the names of the two tables being joined, and **`column`** is the related column between the two tables. The **`ON`** keyword specifies the condition for the join.
+
+Note that the result of a join operation is a new table that includes all the columns from both tables. The columns that are not used for the join will be duplicated in the result table. You can use column aliases to differentiate between the duplicated columns.
+
+Join operations can be used in combination with other SQL operations like **`WHERE`**, **`GROUP BY`**, and **`ORDER BY`** to create complex queries that retrieve specific data from multiple tables.
+
+## Day 18 - SQL INNER JOIN Keyword
+
+In SQL, the **`INNER JOIN`** keyword is used to combine rows from two or more tables based on a related column between them. The **`INNER JOIN`** returns only the rows that have matching values in both tables.
+
+Here's an example of how to use the **`INNER JOIN`** keyword:
+
+```
+
+SELECT *
+FROM table1
+INNER JOIN table2
+ON table1.column = table2.column;
+
+```
+
+In this example, **`table1`** and **`table2`** are the names of the two tables being joined, and **`column`** is the related column between the two tables. The **`ON`** keyword specifies the condition for the join.
+
+The result of the **`INNER JOIN`** operation is a new table that includes all the columns from both tables where the join condition is true. The columns that are not used for the join will be duplicated in the result table. You can use column aliases to differentiate between the duplicated columns.
+
+Here's an example of how to use column aliases with an **`INNER JOIN`**:
+
+```
+
+SELECT table1.column1 AS column1_alias, table2.column2 AS column2_alias
+FROM table1
+INNER JOIN table2
+ON table1.column = table2.column;
+
+```
+
+In this example, **`column1_alias`** and **`column2_alias`** are the aliases given to the duplicated columns in the result table. This makes it easier to refer to the columns in the **`SELECT`** statement and the result table.
+
+## Day 19 - **SQL LEFT JOIN Keyword**
+
+In SQL, the **`LEFT JOIN`** keyword is used to combine all the rows from the left table with matching rows from the right table based on a related column between them. If there is no match, the result will contain NULL values for the right table columns.
+
+Here's an example of how to use the **`LEFT JOIN`** keyword:
+
+```
+
+SELECT *
+FROM table1
+LEFT JOIN table2
+ON table1.column = table2.column;
+
+```
+
+In this example, **`table1`** is the left table, **`table2`** is the right table, and **`column`** is the related column between the two tables. The **`ON`** keyword specifies the condition for the join.
+
+The result of the **`LEFT JOIN`** operation is a new table that includes all the rows from the left table and the matching rows from the right table. If there is no match, the result will contain NULL values for the right table columns.
+
+Here's an example of how to use column aliases with a **`LEFT JOIN`**:
+
+```
+
+SELECT table1.column1 AS column1_alias, table2.column2 AS column2_alias
+FROM table1
+LEFT JOIN table2
+ON table1.column = table2.column;
+
+```
+
+In this example, **`column1_alias`** and **`column2_alias`** are the aliases given to the duplicated columns in the result table. This makes it easier to refer to the columns in the **`SELECT`** statement and the result table.
+
+Note that in some databases, such as MySQL, the **`LEFT OUTER JOIN`** keyword can be used interchangeably with **`LEFT JOIN`**. The same is true for **`RIGHT JOIN`** and **`RIGHT OUTER JOIN`**.
+
+## Day 20 - **SQL RIGHT JOIN Keyword**
+
+In SQL, the **`RIGHT JOIN`** keyword is used to combine all the rows from the right table with matching rows from the left table based on a related column between them. If there is no match, the result will contain NULL values for the left table columns.
+
+Here's an example of how to use the **`RIGHT JOIN`** keyword:
+
+```
+
+SELECT *
+FROM table1
+RIGHT JOIN table2
+ON table1.column = table2.column;
+
+```
+
+In this example, **`table1`** is the left table, **`table2`** is the right table, and **`column`** is the related column between the two tables. The **`ON`** keyword specifies the condition for the join.
+
+The result of the **`RIGHT JOIN`** operation is a new table that includes all the rows from the right table and the matching rows from the left table. If there is no match, the result will contain NULL values for the left table columns.
+
+Here's an example of how to use column aliases with a **`RIGHT JOIN`**:
+
+```
+
+SELECT table1.column1 AS column1_alias, table2.column2 AS column2_alias
+FROM table1
+RIGHT JOIN table2
+ON table1.column = table2.column;
+
+```
+
+In this example, **`column1_alias`** and **`column2_alias`** are the aliases given to the duplicated columns in the result table. This makes it easier to refer to the columns in the **`SELECT`** statement and the result table.
+
+Note that in some databases, such as MySQL, the **`RIGHT OUTER JOIN`** keyword can be used interchangeably with **`RIGHT JOIN`**. The same is true for **`LEFT JOIN`** and **`LEFT OUTER JOIN`**.
+
+## Day 21 - **SQL FULL OUTER JOIN Keyword**
+
+The SQL FULL OUTER JOIN keyword is used to combine rows from two or more tables, including all the rows from both tables, regardless of whether there is a matching row in the other table(s).
+
+The syntax for a FULL OUTER JOIN is as follows:
+
+```
+
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name;
+
+```
+
+In this syntax, **`table1`** and **`table2`** are the names of the tables that you want to join, and **`column_name`** is the name of the column that you want to join the tables on.
+
+The result of a FULL OUTER JOIN is a table that contains all the rows from both tables, with NULL values in the columns where there is no matching row in the other table(s). If there is a matching row, the columns from both tables are combined into a single row in the result set.
+
+Note that not all database management systems support the FULL OUTER JOIN keyword. In such cases, you can simulate a FULL OUTER JOIN using a combination of a LEFT OUTER JOIN and a RIGHT OUTER JOIN.
+
+## Day 22 - **SQL GROUP BY Statement**
+
+The SQL GROUP BY statement is used to group rows that have the same values in one or more columns, and perform aggregate functions on them.
+
+The syntax for the GROUP BY statement is as follows:
+
+```
+
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+
+```
+
+In this syntax, **`column_name(s)`** refers to the column(s) that you want to group the results by, **`table_name`** refers to the table that you want to retrieve data from, and **`condition`** is an optional parameter that can be used to filter the results.
+
+When you use the GROUP BY statement, the result set is divided into groups based on the values in the specified column(s). The aggregate functions (such as COUNT, SUM, AVG, MAX, and MIN) are then applied to each group, and the result is returned as a single row for each group.
+
+For example, suppose you have a table called **`orders`** with columns **`customer_name`**, **`order_date`**, and **`order_amount`**. You could use the following query to group the orders by customer and calculate the total amount of orders for each customer:
+
+```
+
+SELECT customer_name, SUM(order_amount)
+FROM orders
+GROUP BY customer_name
+
+```
+
+This query would return a result set that shows the total order amount for each customer in the **`orders`** table.
+
+Note that when you use the GROUP BY statement, all columns in the SELECT statement must either be included in the GROUP BY clause or be included in an aggregate function.
+
+## Day 23 - SQL HAVING Clause
+
+The SQL HAVING clause is used in conjunction with the GROUP BY clause to filter the results of a query based on the result of an aggregate function.
+
+The syntax for the HAVING clause is as follows:
+
+```
+
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING aggregate_function(condition)
+
+```
+
+In this syntax, **`column_name(s)`** refers to the column(s) that you want to retrieve data from, **`table_name`** refers to the table that you want to retrieve data from, **`condition`** is an optional parameter that can be used to filter the results, and **`aggregate_function`** is a function that operates on the grouped data and returns a single result.
+
+When you use the HAVING clause, the result set is first grouped based on the columns specified in the GROUP BY clause. Then, the aggregate function specified in the HAVING clause is applied to the grouped data. If the result of the aggregate function satisfies the condition specified in the HAVING clause, then the group is included in the result set.
+
+For example, suppose you have a table called **`orders`** with columns **`customer_name`**, **`order_date`**, and **`order_amount`**. You could use the following query to group the orders by customer and retrieve the total amount of orders for each customer that is greater than 1000:
+
+```
+
+SELECT customer_name, SUM(order_amount)
+FROM orders
+GROUP BY customer_name
+HAVING SUM(order_amount) > 1000
+
+```
+
+This query would return a result set that shows the total order amount for each customer in the **`orders`** table, but only for those customers whose total order amount is greater than 1000.
+
+Note that the HAVING clause is used to filter the results of a query after the data has been grouped, whereas the WHERE clause is used to filter the results of a query before the data has been grouped.
+
+## Day 24 - SQL EXISTS Operator
+
+The SQL EXISTS operator is a logical operator that is used to test the existence of a subquery. It is typically used in conjunction with a correlated subquery to determine if any rows exist in a table based on a condition specified in the subquery.
+
+The syntax for the EXISTS operator is as follows:
+
+```
+
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS (SELECT column_name FROM table_name WHERE condition);
+
+```
+
+In this syntax, the main query retrieves data from a table, and the subquery checks for the existence of data in another table based on a specific condition. If the subquery returns any rows, the EXISTS operator returns true and the main query retrieves data as per the specified column names.
+
+The EXISTS operator can be used with other SQL clauses, such as SELECT, UPDATE, DELETE, and INSERT. It is particularly useful when you want to filter results based on a condition that is not directly present in the table being queried. For example, you might use the EXISTS operator to find all customers who have placed orders in the last 30 days, even if their contact information is stored in a separate table.
+
+## Day 25 - **SQL SELECT INTO Statement**
+
+The SQL SELECT INTO statement is used to create a new table and populate it with data from an existing table. The new table is created based on the columns in the SELECT statement and the data is inserted into the new table from the source table.
+
+The syntax for the SELECT INTO statement is as follows:
+
+```
+
+SELECT column1, column2, column3, ...
+INTO new_table
+FROM source_table
+WHERE condition;
+
+```
+
+In this syntax, the SELECT statement specifies the columns to be copied from the source_table into the new_table. The INTO clause specifies the name of the new table that will be created. The WHERE clause is optional and is used to filter the data that will be copied to the new table based on a specific condition.
+
+It is important to note that the SELECT INTO statement creates a new table with the specified columns and data, and therefore, it should only be used if you want to create a new table with a specific set of columns and data. If you want to copy data from one table to another existing table, you should use the INSERT INTO statement instead.
+
+Additionally, it is important to make sure that the new table does not already exist in the database, or else the SELECT INTO statement will fail.
+
+Suppose you have a table named "orders" that contains information about customer orders, including order ID, customer ID, order date, and order amount. You want to create a new table named "recent_orders" that contains only the orders placed in the last 30 days.
+
+```
+
+SELECT order_id, customer_id, order_date, order_amount
+INTO recent_orders
+FROM orders
+WHERE order_date >= DATEADD(day, -30, GETDATE());
+
+```
+
+In this example, the SELECT INTO statement creates a new table named "recent_orders" and copies the columns "order_id," "customer_id," "order_date," and "order_amount" from the "orders" table. The WHERE clause filters the data to only include orders placed within the last 30 days. The resulting "recent_orders" table will contain only the recent orders data from the "orders" table.
+
+## Day 26 - SQL CASE Expression
+
+SQL CASE expression is a conditional expression used to perform a variety of operations in SQL queries, including conditional logic, data transformations, and aggregations. It is similar to the IF-THEN-ELSE construct found in many programming languages.
+
+The syntax for the SQL CASE expression is as follows:
+
+```
+
+CASE expression
+    WHEN value1 THEN result1
+    WHEN value2 THEN result2
+    ...
+    WHEN valueN THEN resultN
+    ELSE default_result
+END
+
+```
+
+In this syntax, the expression is evaluated and compared against each value in the WHEN clause. If a match is found, the corresponding result is returned. If no matches are found, the default_result is returned.
+
+Here's an example of how the SQL CASE expression can be used in a query:
+
+Suppose you have a table named "orders" that contains information about customer orders, including order ID, customer ID, and order amount. You want to create a new column in the table called "order_status" that indicates whether each order is above or below a certain threshold amount.
+
+```
+
+SELECT order_id, customer_id, order_amount,
+    CASE
+        WHEN order_amount > 1000 THEN 'Above Threshold'
+        ELSE 'Below Threshold'
+    END AS order_status
+FROM orders;
+
+```
+
+In this example, the CASE expression is used to create a new column named "order_status" that indicates whether each order is above or below a threshold of $1000. If an order has an order amount greater than 1000, the "Above Threshold" string is returned. Otherwise, the "Below Threshold" string is returned. The resulting query output will contain the original columns from the "orders" table, as well as the new "order_status" column indicating whether each order is above or below the threshold.
+
+## Day 27 - **SQL Stored Procedures**
+
+SQL stored procedures are a type of program stored in a database that can be executed on demand. A stored procedure is a precompiled set of one or more SQL statements that are stored in the database and can be called repeatedly by client applications or other database objects.
+
+Stored procedures can be used to simplify complex SQL operations, improve performance, and provide a layer of abstraction between client applications and the database. They can also be used to enforce security, encapsulate business rules, and provide a standard interface for interacting with the database.
+
+Here's an example of how to create a stored procedure in SQL:
+
+```
+
+CREATE PROCEDURE get_customer_orders
+    @customer_id int
+AS
+BEGIN
+    SELECT order_id, order_date, order_amount
+    FROM orders
+    WHERE customer_id = @customer_id
+    ORDER BY order_date DESC;
+END
+
+```
+
+In this example, we create a stored procedure named "get_customer_orders" that accepts a parameter named "@customer_id" and returns the order details for that customer. When executed, the stored procedure will run the SQL SELECT statement and return the results.
+
+Once the stored procedure is created, it can be executed by calling its name and passing in the required parameter:
+
+```
+
+EXEC get_customer_orders @customer_id = 12345;
+
+```
+
+In this example, we execute the "get_customer_orders" stored procedure and pass in the value "12345" for the "@customer_id" parameter. The stored procedure will then return the order details for the specified customer.
+
+## Day 28 - **SQL CREATE DATABASE**
+
+SQL CREATE DATABASE statement is used to create a new database in a SQL Server instance. The syntax for the CREATE DATABASE statement is as follows:
+
+```
+
+CREATE DATABASE database_name;
+
+```
+
+In this syntax, "database_name" is the name of the new database that you want to create.
+
+Here's an example of how to create a new database named "my_database":
+
+```
+
+CREATE DATABASE my_database;
+
+```
+
+When this statement is executed, SQL Server will create a new database named "my_database" in the default location configured for the SQL Server instance.
+
+You can also specify additional options when creating a new database, such as specifying the location of the database files, the default collation, and other database-level settings. Here's an example that shows some additional options:
+
+```
+
+CREATE DATABASE my_database
+ON
+( NAME = my_database_data, FILENAME = 'C:\SQLData\my_database_data.mdf'),
+( NAME = my_database_log, FILENAME = 'C:\SQLLogs\my_database_log.ldf')
+COLLATE SQL_Latin1_General_CP1_CI_AS;
+
+```
+
+In this example, we create a new database named "my_database" and specify the file locations for the primary data and log files. We also specify the collation for the database to be "SQL_Latin1_General_CP1_CI_AS".
+
+## Day 29 - **SQL DROP DATABASE**
+
+SQL DROP DATABASE statement is used to delete an existing database in a SQL Server instance. The syntax for the DROP DATABASE statement is as follows:
+
+```
+
+DROP DATABASE database_name;
+
+```
+
+In this syntax, "database_name" is the name of the database that you want to delete.
+
+Here's an example of how to drop a database named "my_database":
+
+```
+
+DROP DATABASE my_database;
+
+```
+
+When this statement is executed, SQL Server will delete the database named "my_database" and all its associated objects such as tables, views, stored procedures, and functions.
+
+It's important to note that dropping a database is a permanent action and cannot be undone. Therefore, it's recommended to take a backup of the database before dropping it. Additionally, ensure that you have the required permissions to drop a database.
+
+## Day 30 - SQL BACKUP DATABASE
+
+SQL BACKUP DATABASE statement is used to create a backup of an existing database in a SQL Server instance. The backup can be used to restore the database in case of data loss or to migrate the database to another SQL Server instance. The syntax for the BACKUP DATABASE statement is as follows:
+
+```
+BACKUP DATABASE database_name
+TO disk = 'backup_file_path'
+
+```
+
+In this syntax, "database_name" is the name of the database that you want to backup and "backup_file_path" is the file path and name of the backup file.
+
+Here's an example of how to backup a database named "my_database" to a backup file named "my_database_backup.bak" located in the "C:\SQLBackups" folder:
+
+```
+BACKUP DATABASE my_database
+TO disk = 'C:\SQLBackups\my_database_backup.bak';
+
+```
+
+When this statement is executed, SQL Server will create a backup file named "my_database_backup.bak" in the "C:\SQLBackups" folder that contains the backup of the "my_database" database.
+
+It's important to note that backups should be taken regularly to ensure that the data is safe and can be restored in case of data loss. Additionally, ensure that you have the required permissions to backup a database.
+
+## Day 31 - **SQL CREATE TABLE**
+
+SQL CREATE TABLE statement is used to create a new table in a database. The syntax for the CREATE TABLE statement is as follows:
+
+```
+
+CREATE TABLE table_name (
+   column1 datatype [NULL | NOT NULL],
+   column2 datatype [NULL | NOT NULL],
+   ...
+   columnN datatype [NULL | NOT NULL]
+);
+
+```
+
+In this syntax, "table_name" is the name of the new table that you want to create, and "column1" through "columnN" are the names of the columns in the table.
+
+Here's an example of how to create a new table named "employees" with three columns: "id", "name", and "salary":
+
+```
+
+CREATE TABLE employees (
+   id INT NOT NULL,
+   name VARCHAR(50) NOT NULL,
+   salary DECIMAL(10, 2) NOT NULL
+);
+
+```
+
+When this statement is executed, SQL Server will create a new table named "employees" with three columns: "id" of data type INT, "name" of data type VARCHAR(50), and "salary" of data type DECIMAL(10, 2).
+
+You can also specify additional constraints on the columns, such as PRIMARY KEY, UNIQUE, and FOREIGN KEY constraints. Here's an example that shows some additional constraints:
+
+```
+
+CREATE TABLE employees (
+   id INT NOT NULL PRIMARY KEY,
+   name VARCHAR(50) NOT NULL,
+   salary DECIMAL(10, 2) NOT NULL,
+   department_id INT NOT NULL FOREIGN KEY REFERENCES departments(id)
+);
+
+```
+
+In this example, we add a PRIMARY KEY constraint on the "id" column and a FOREIGN KEY constraint on the "department_id" column that references the "id" column in the "departments" table.
+
+## Day 32 - SQL DROP TABLE
+
+SQL DROP TABLE statement is used to delete an existing table in a database. The syntax for the DROP TABLE statement is as follows:
+
+```
+
+DROP TABLE table_name;
+
+```
+
+In this syntax, "table_name" is the name of the table that you want to delete.
+
+Here's an example of how to drop a table named "employees":
+
+```
+DROP TABLE employees;
+
+```
+
+When this statement is executed, SQL Server will delete the "employees" table and all its associated data and objects such as indexes, constraints, and triggers.
+
+It's important to note that dropping a table is a permanent action and cannot be undone. Therefore, it's recommended to take a backup of the table data before dropping it. Additionally, ensure that you have the required permissions to drop a table.
+
+## Day 33 - **SQL ALTER TABLE**
+
+SQL ALTER TABLE statement is used to modify the structure of an existing table in a database. The syntax for the ALTER TABLE statement is as follows:
+
+```
+
+ALTER TABLE table_name
+ADD column_name datatype [NULL | NOT NULL] [DEFAULT default_value];
+
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype [NULL | NOT NULL] [DEFAULT default_value];
+
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+ALTER TABLE table_name
+ALTER COLUMN column_name [NULL | NOT NULL];
+
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name constraint_type (column1, column2, ...);
+
+ALTER TABLE table_name
+DROP CONSTRAINT constraint_name;
+
+```
+
+In this syntax, "table_name" is the name of the table that you want to modify, and the different options following the ALTER TABLE statement allow you to add, modify, or remove columns, change column data types or constraints.
+
+Here's an example of how to add a new column named "email" of data type VARCHAR(100) to an existing table named "employees":
+
+```
+
+ALTER TABLE employees
+ADD email VARCHAR(100) NOT NULL;
+
+```
+
+When this statement is executed, SQL Server will add a new column named "email" of data type VARCHAR(100) to the "employees" table.
+
+You can also modify existing columns by changing their data type or nullability, as shown in the following example:
+
+```
+
+ALTER TABLE employees
+ALTER COLUMN email VARCHAR(200) NULL;
+
+```
+
+This statement modifies the "email" column of the "employees" table, changing its data type to VARCHAR(200) and allowing null values.
+
+You can also add or remove constraints on the columns of an existing table, as shown in the following example:
+
+```
+
+ALTER TABLE employees
+ADD CONSTRAINT pk_employee PRIMARY KEY (id);
+
+ALTER TABLE employees
+DROP CONSTRAINT pk_employee;
+
+```
+
+This statement first adds a primary key constraint named "pk_employee" on the "id" column of the "employees" table, and then removes it.
+
+## Day 34 - **SQL Constraints**
+
+In SQL, constraints are used to specify rules and restrictions on the data that can be stored in a table. They ensure data integrity and consistency by preventing invalid data from being entered into the table.
+
+There are several types of constraints that can be defined on a table, including:
+
+1. NOT NULL constraint: This constraint ensures that a column cannot have a NULL value.
+2. PRIMARY KEY constraint: This constraint ensures that a column or a combination of columns uniquely identifies each row in the table.
+3. UNIQUE constraint: This constraint ensures that each value in a column or a combination of columns is unique across all rows in the table.
+4. FOREIGN KEY constraint: This constraint ensures that the values in a column or a combination of columns in one table correspond to the values in a primary key column or a unique key column in another table.
+5. CHECK constraint: This constraint ensures that the values in a column satisfy a specified condition.
+
+Here's an example of how to define constraints on a table:
+
+```
+
+CREATE TABLE employees (
+   id INT NOT NULL PRIMARY KEY,
+   name VARCHAR(50) NOT NULL,
+   salary DECIMAL(10, 2) NOT NULL,
+   department_id INT NOT NULL,
+   CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES departments(id),
+   CONSTRAINT ck_salary CHECK (salary > 0)
+);
+
+```
+
+In this example, we define a primary key constraint on the "id" column and a foreign key constraint on the "department_id" column that references the "id" column in the "departments" table. We also define a check constraint on the "salary" column to ensure that it is greater than 0.
+
+Constraints can also be added or removed using the ALTER TABLE statement. For example, to add a unique constraint on the "name" column of the "employees" table, you can use the following statement:
+
+```
+
+ALTER TABLE employees
+ADD CONSTRAINT uk_name UNIQUE (name);
+
+```
+
+And to remove the unique constraint on the "name" column, you can use the following statement:
+
+```
+
+ALTER TABLE employees
+DROP CONSTRAINT uk_name;
+
+```
+
+Constraints play an important role in maintaining data integrity and ensuring the accuracy and reliability of the data stored in a table.
+
+## Day 35 - **SQL NOT NULL Constraint**
+
+SQL NOT NULL constraint is used to ensure that a column in a table cannot have a NULL value. When you define a column with the NOT NULL constraint, it means that the column must have a value for every row in the table.
+
+Here's an example of how to create a table with a NOT NULL constraint on a column:
+
+```
+
+CREATE TABLE employees (
+   id INT NOT NULL,
+   name VARCHAR(50) NOT NULL,
+   age INT,
+   salary DECIMAL(10, 2) NOT NULL
+);
+
+```
+
+In this example, the "id", "name", and "salary" columns have the NOT NULL constraint. This means that a value must be provided for these columns for every row inserted into the "employees" table. The "age" column does not have a NOT NULL constraint, which means that it can have a NULL value.
+
+If you try to insert a row into the "employees" table without providing a value for a column with the NOT NULL constraint, SQL Server will return an error. For example, the following statement would fail:
+
+```
+
+INSERT INTO employees (id, name, salary)
+VALUES (1, 'John', 5000.00);
+
+```
+
+This is because the "age" column does not have a value specified, and it has a NOT NULL constraint. To avoid this error, you need to provide a value for the "age" column in the INSERT statement or remove the NOT NULL constraint on the "age" column.
+
+## Day 36 - SQL UNIQUE constraint
+
+SQL UNIQUE constraint is used to ensure that each value in a column or a combination of columns is unique across all rows in a table. When you define a column with the UNIQUE constraint, it means that the values in that column must be unique for every row in the table.
+
+Here's an example of how to create a table with a UNIQUE constraint on a column:
+
+```
+
+CREATE TABLE students (
+   id INT NOT NULL,
+   name VARCHAR(50) NOT NULL,
+   email VARCHAR(100) UNIQUE,
+   age INT
+);
+
+```
+
+In this example, the "email" column has the UNIQUE constraint, which means that every value in this column must be unique across all rows in the "students" table. The "id", "name", and "age" columns do not have a UNIQUE constraint and can contain duplicate values.
+
+If you try to insert a row into the "students" table with a value that already exists in the "email" column, SQL Server will return an error. For example, the following statement would fail:
+
+```
+
+INSERT INTO students (id, name, email, age)
+VALUES (1, 'John', 'john@example.com', 25);
+
+```
+
+This is because the value "**[john@example.com](mailto:john@example.com)**" already exists in the "email" column, and it has a UNIQUE constraint. To avoid this error, you need to provide a unique value for the "email" column in the INSERT statement or update the existing row with a different value.
+
+## Day 37 - **SQL PRIMARY KEY Constraint**
+
+In SQL, the PRIMARY KEY constraint is used to specify a column or a set of columns that uniquely identify each row in a table. The primary key constraint ensures that the values in the specified column(s) are unique and cannot be null.
+
+A table can have only one primary key, and it can be defined at the time of creating the table or added later using the ALTER TABLE statement. When a primary key is defined on a column, the database automatically creates an index on that column for faster searching and sorting of data.
+
+The syntax for defining a primary key constraint when creating a table is as follows:
+
+```
+
+CREATE TABLE table_name (
+   column1 datatype PRIMARY KEY,
+   column2 datatype,
+   column3 datatype,
+   .....
+);
+
+```
+
+The syntax for adding a primary key constraint to an existing table is as follows:
+
+```
+
+ALTER TABLE table_name
+ADD PRIMARY KEY (column1, column2, ...);
+
+```
+
+In the above syntax, **`column1`**, **`column2`**, etc. are the names of the columns that you want to include in the primary key.
+
+It is important to choose the right column(s) to define as the primary key because the primary key will be used as a reference by other tables, and changing the primary key can have significant impacts on the database's performance and data integrity.
+
+## Day 38 - **SQL FOREIGN KEY Constraint**
+
+In SQL, a FOREIGN KEY constraint is used to link two tables together based on a relationship between a column(s) in one table and the primary key column(s) in another table. The FOREIGN KEY constraint ensures that the values in the referencing column(s) in the child table exist in the referenced column(s) of the parent table or are null.
+
+The syntax for defining a FOREIGN KEY constraint when creating a table is as follows:
+
+```
+
+CREATE TABLE table_name1 (
+   column1 datatype PRIMARY KEY,
+   column2 datatype,
+   column3 datatype,
+   .....
+   FOREIGN KEY (column2) REFERENCES table_name2(column1)
+);
+
+```
+
+In the above syntax, **`table_name1`** is the child table, **`column2`** is the referencing column in the child table, **`table_name2`** is the parent table, and **`column1`** is the referenced column in the parent table.
+
+The syntax for adding a FOREIGN KEY constraint to an existing table is as follows:
+
+```
+
+ALTER TABLE table_name1
+ADD CONSTRAINT fk_name FOREIGN KEY (column2) REFERENCES table_name2(column1);
+
+```
+
+In the above syntax, **`fk_name`** is the name of the FOREIGN KEY constraint.
+
+It is important to maintain data integrity while creating FOREIGN KEY constraints. The referenced column(s) in the parent table must be defined as a primary key or a unique constraint. Also, the datatype and size of the referencing column(s) in the child table must match the datatype and size of the referenced column(s) in the parent table. If the FOREIGN KEY constraint is violated, the database will not allow the insertion, update, or deletion of data in the child table.
+
+## Day 39 - **SQL CHECK Constraint**
+
+In SQL, a CHECK constraint is used to ensure that the values in a column meet a specified condition or set of conditions. The CHECK constraint is defined at the time of creating the table or added later using the ALTER TABLE statement.
+
+The syntax for defining a CHECK constraint when creating a table is as follows:
+
+```
+
+CREATE TABLE table_name (
+   column1 datatype CHECK (condition),
+   column2 datatype,
+   column3 datatype,
+   .....
+);
+
+```
+
+In the above syntax, **`column1`** is the name of the column on which the CHECK constraint is defined, **`datatype`** is the data type of the column, and **`condition`** is the expression that must be evaluated to TRUE for the value to be inserted or updated in the column.
+
+The syntax for adding a CHECK constraint to an existing table is as follows:
+
+```
+
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name CHECK (condition);
+
+```
+
+In the above syntax, **`constraint_name`** is the name of the CHECK constraint, and **`condition`** is the expression that must be evaluated to TRUE for the value to be inserted or updated in the column.
+
+For example, let's say we have a table named "employees" with a column "age", and we want to ensure that the age of an employee is not less than 18 and not greater than 60. We can define a CHECK constraint on the age column as follows:
+
+```
+
+CREATE TABLE employees (
+   id INT PRIMARY KEY,
+   name VARCHAR(50),
+   age INT CHECK (age >= 18 AND age <= 60),
+   salary DECIMAL(10,2)
+);
+
+```
+
+In the above example, we have defined a CHECK constraint on the age column to ensure that the age is between 18 and 60 (inclusive).
+
+When a CHECK constraint is violated, the database will not allow the insertion or update of data in the column that violates the constraint.
+
+## Day 40 - **SQL DEFAULT Constraint**
+
+In SQL, a DEFAULT constraint is used to set a default value for a column when a new row is inserted into the table and the value for that column is not provided. The DEFAULT constraint is defined at the time of creating the table or added later using the ALTER TABLE statement.
+
+The syntax for defining a DEFAULT constraint when creating a table is as follows:
+
+```
+
+CREATE TABLE table_name (
+   column1 datatype DEFAULT default_value,
+   column2 datatype,
+   column3 datatype,
+   .....
+);
+
+```
+
+In the above syntax, **`column1`** is the name of the column on which the DEFAULT constraint is defined, **`datatype`** is the data type of the column, and **`default_value`** is the value that will be assigned to the column if no value is specified during insertion.
+
+The syntax for adding a DEFAULT constraint to an existing table is as follows:
+
+```
+
+ALTER TABLE table_name
+ALTER COLUMN column_name SET DEFAULT default_value;
+
+```
+
+In the above syntax, **`column_name`** is the name of the column on which the DEFAULT constraint is being added, and **`default_value`** is the value that will be assigned to the column if no value is specified during insertion.
+
+For example, let's say we have a table named "employees" with a column "hire_date", and we want to set the default value of hire date to the current date when a new row is inserted into the table. We can define a DEFAULT constraint on the hire_date column as follows:
+
+```
+
+CREATE TABLE employees (
+   id INT PRIMARY KEY,
+   name VARCHAR(50),
+   hire_date DATE DEFAULT CURRENT_DATE,
+   salary DECIMAL(10,2)
+);
+
+```
+
+In the above example, we have defined a DEFAULT constraint on the hire_date column to set the default value to the current date if no value is provided during insertion.
+
+When a DEFAULT constraint is defined, if no value is specified during insertion, the default value will be assigned to the column. If a value is provided during insertion, the specified value will be assigned to the column instead of the default value.
+
+## Day 41 - **SQL CREATE INDEX Statement**
+
+In SQL, an index is a database object that improves the performance of SQL queries by allowing them to retrieve data more efficiently. An index is created on one or more columns of a table to help the database engine quickly find the rows that match a search condition. The CREATE INDEX statement is used to create an index on one or more columns of a table.
+
+The syntax for creating an index on a table is as follows:
+
+```
+
+CREATE [UNIQUE] INDEX index_name
+ON table_name (column1 [, column2, ...]);
+
+```
+
+In the above syntax, **`index_name`** is the name of the index, **`table_name`** is the name of the table on which the index is being created, **`column1`**, **`column2`**, etc. are the columns on which the index is being created.
+
+If you specify UNIQUE keyword in the CREATE INDEX statement, the index will enforce uniqueness on the specified columns, i.e., it will not allow duplicate values in the indexed columns.
+
+For example, let's say we have a table named "employees" with columns "id", "first_name", "last_name", and "department". We want to create an index on the "last_name" column to improve the performance of queries that search for employees by last name. The CREATE INDEX statement for this index would be as follows:
+
+```
+
+CREATE INDEX idx_last_name
+ON employees (last_name);
+
+```
+
+In the above example, we have created an index named "idx_last_name" on the "last_name" column of the "employees" table.
+
+It is important to note that creating an index may improve the performance of queries that search for data in the indexed column(s), but it may also slow down the performance of queries that update or insert data into the table. Therefore, it is recommended to create indexes on columns that are frequently used in WHERE clauses of SELECT statements and not on columns that are frequently updated.
+
+## Day 42 - **AUTO INCREMENT Field**
+
+In SQL, an AUTO INCREMENT field is a column that automatically generates a unique numeric value when a new row is inserted into a table. The AUTO INCREMENT field is often used as a primary key because it guarantees the uniqueness of each row in the table.
+
+The syntax for defining an AUTO INCREMENT field varies depending on the database system being used. In MySQL, for example, the AUTO INCREMENT field is defined as follows:
+
+```
+
+CREATE TABLE table_name (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   column1 datatype,
+   column2 datatype,
+   .....
+);
+
+```
+
+In the above syntax, **`id`** is the name of the AUTO INCREMENT field, **`INT`** is the data type of the field, **`AUTO_INCREMENT`** is the keyword that tells MySQL to generate a new value for the field automatically, and **`PRIMARY KEY`** specifies that the field is the primary key for the table.
+
+When a new row is inserted into the table, the AUTO INCREMENT field is automatically assigned the next available integer value. Each subsequent row inserted into the table will have a unique value for the AUTO INCREMENT field.
+
+For example, let's say we have a table named "employees" with columns "id", "name", and "salary". We want to define an AUTO INCREMENT field for the "id" column. The CREATE TABLE statement for this table would be as follows:
+
+```
+
+CREATE TABLE employees (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   name VARCHAR(50),
+   salary DECIMAL(10,2)
+);
+
+```
+
+In the above example, we have defined an AUTO INCREMENT field for the "id" column of the "employees" table. When a new row is inserted into the table, the "id" field will be automatically assigned the next available integer value.
+
+It is important to note that not all database systems support the AUTO INCREMENT field syntax. In Microsoft SQL Server, for example, the equivalent functionality is provided by the IDENTITY property, and in Oracle, it is provided by the SEQUENCE object.
+
+## Day 43 - SQL Dates
+
+In SQL, dates are a common data type used to represent specific points in time. SQL supports several date-related data types, including DATE, TIME, DATETIME, TIMESTAMP, and INTERVAL.
+
+The DATE data type represents a specific calendar date, without any time zone information. The format for a DATE value is 'YYYY-MM-DD', where YYYY is the year, MM is the month (1-12), and DD is the day of the month.
+
+The TIME data type represents a specific time of day, without any date or time zone information. The format for a TIME value is 'HH:MM:SS', where HH is the hour (0-23), MM is the minute (0-59), and SS is the second (0-59).
+
+The DATETIME data type represents a specific date and time, without any time zone information. The format for a DATETIME value is 'YYYY-MM-DD HH:MM:SS', where YYYY is the year, MM is the month (1-12), DD is the day of the month, HH is the hour (0-23), MM is the minute (0-59), and SS is the second (0-59).
+
+The TIMESTAMP data type is similar to the DATETIME data type, but it also includes time zone information. The format for a TIMESTAMP value is 'YYYY-MM-DD HH:MM:SS.SSSSSS +HH:MM', where the first part is the same as a DATETIME value, and the second part represents the time zone offset.
+
+The INTERVAL data type represents a duration of time, such as a number of years, months, days, hours, minutes, or seconds. The format for an INTERVAL value is 'interval value unit', where interval value is a number and unit is a time unit, such as YEAR, MONTH, DAY, HOUR, MINUTE, or SECOND.
+
+For example, let's say we have a table named "orders" with columns "order_id", "customer_id", "order_date", and "order_total". We want to insert a new row into the table with an order date of March 30, 2023. The INSERT statement for this row would be as follows:
+
+```
+
+INSERT INTO orders (order_id, customer_id, order_date, order_total)
+VALUES (1, 123, '2023-03-30', 100.00);
+
+```
+
+In the above example, we have used the DATE data type to represent the order date as '2023-03-30'.
+
+It is important to note that date and time values in SQL are subject to the rules of the underlying operating system and may vary depending on the database system being used. It is also important to ensure that date and time values are handled correctly when performing calculations or comparisons in SQL.
+
+## Day 44 - **SQL CREATE VIEW Statement**
+
+In SQL, a view is a virtual table that is based on the result of a SQL SELECT statement. Views can be used to simplify complex queries, provide a customized view of the data, or restrict access to sensitive data. The CREATE VIEW statement is used to create a new view in a database.
+
+The basic syntax for creating a view in SQL is as follows:
+
+```
+
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+```
+
+In the above syntax, **`view_name`** is the name of the view, **`column1`**, **`column2`**, etc. are the columns to include in the view, **`table_name`** is the name of the table to use in the SELECT statement, and **`condition`** is an optional WHERE clause to filter the results.
+
+For example, let's say we have a table named "employees" with columns "employee_id", "first_name", "last_name", "hire_date", and "salary". We want to create a view that includes only the "employee_id", "first_name", "last_name", and "hire_date" columns. The CREATE VIEW statement for this view would be as follows:
+
+```
+
+CREATE VIEW employee_info AS
+SELECT employee_id, first_name, last_name, hire_date
+FROM employees;
+
+```
+
+In the above example, we have created a view named "employee_info" that includes the "employee_id", "first_name", "last_name", and "hire_date" columns from the "employees" table.
+
+Once a view is created, it can be used like a regular table in SQL SELECT statements. For example, to retrieve all rows from the "employee_info" view, we could use the following SELECT statement:
+
+```
+
+SELECT * FROM employee_info;
+
+```
+
+In the above example, we are selecting all columns from the "employee_info" view.
+
+It is important to note that views do not store data themselves, but instead provide a virtual representation of the data based on the underlying SELECT statement. Views can be a powerful tool for simplifying queries and managing access to data, but they can also have performance implications if used improperly.
+
+## Day 45 - **SQL Injection**
+
+SQL injection is a type of security vulnerability that occurs when an attacker is able to inject malicious SQL code into an application's database query, either through user input or by other means. This can allow the attacker to access or modify data in the database, or even execute arbitrary code on the server hosting the database.
+
+The vulnerability typically arises when an application fails to properly validate user input or sanitize it before using it in a SQL query. For example, if an application accepts user input for a search query and constructs a SQL query based on that input without validating or sanitizing it, an attacker could insert their own SQL code as part of the input and execute it in the context of the query.
+
+Some common techniques used by attackers to exploit SQL injection vulnerabilities include:
+
+- Commenting out parts of the original SQL query and adding their own code
+- Using UNION statements to combine the results of different queries
+- Using subqueries to retrieve or modify data in the database
+- Using time delays to obfuscate the attack and avoid detection
+
+To prevent SQL injection vulnerabilities, it is important to use secure coding practices, such as:
+
+- Using parameterized queries, prepared statements, or stored procedures to sanitize user input
+- Validating input data to ensure it matches the expected format and does not contain unexpected characters or values
+- Limiting the privileges of the database user used by the application to only the necessary operations and data access
+- Regularly updating and patching the database software and application code to fix known vulnerabilities
+
+In summary, SQL injection is a serious security vulnerability that can have significant consequences if exploited. It is important for developers to be aware of this vulnerability and take steps to prevent it in their applications.
+
+## Day 46 - SQL Hosting
+
+SQL hosting refers to the practice of hosting a SQL database on a remote server that can be accessed over the internet. This allows users to store, manage, and access their data from anywhere with an internet connection, without the need to maintain their own physical server or infrastructure.
+
+There are a variety of SQL hosting options available, ranging from cloud-based solutions to dedicated hosting plans. Some of the key factors to consider when choosing a SQL hosting provider include:
+
+- Reliability and uptime: Ensure that the provider offers a reliable service with minimal downtime and data loss.
+- Security: Look for providers that offer robust security measures, such as firewalls, SSL encryption, and data backup and recovery.
+- Scalability: Choose a provider that can easily scale with your business needs as your database grows in size and complexity.
+- Performance: Consider the provider's hardware and network infrastructure to ensure that it can provide fast and responsive performance for your database.
+- Pricing: Compare pricing plans from multiple providers to ensure that you are getting a fair price for the features and resources that you need.
+
+Some popular SQL hosting providers include Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform, and DigitalOcean. These providers offer a range of services and pricing plans to meet the needs of businesses and individuals of all sizes.
+
+In summary, SQL hosting is a convenient and cost-effective way to store, manage, and access a database from anywhere with an internet connection. When choosing a SQL hosting provider, it is important to consider factors such as reliability, security, scalability, performance, and pricing to ensure that you are getting the best value for your needs.
+
+## Day 47 - **SQL Data Types for MySQL, SQL Server, and MS Access**
+
+SQL data types represent the type of data that can be stored in a database table column. The most common SQL data types for MySQL, SQL Server, and MS Access are:
+
+1. Numeric data types:
+- MySQL: INT, BIGINT, FLOAT, DOUBLE, DECIMAL
+- SQL Server: INT, BIGINT, FLOAT, REAL, DECIMAL
+- MS Access: INTEGER, LONG, SINGLE, DOUBLE, DECIMAL
+1. Date and time data types:
+- MySQL: DATE, TIME, DATETIME, TIMESTAMP, YEAR
+- SQL Server: DATE, TIME, DATETIME, SMALLDATETIME, DATETIME2
+- MS Access: DATE/TIME
+1. Character and string data types:
+- MySQL: CHAR, VARCHAR, TEXT
+- SQL Server: CHAR, VARCHAR, TEXT, NCHAR, NVARCHAR, NTEXT
+- MS Access: TEXT, MEMO
+1. Binary data types:
+- MySQL: BINARY, VARBINARY, BLOB
+- SQL Server: BINARY, VARBINARY, IMAGE
+- MS Access: OLE Object
+1. Boolean data type:
+- MySQL: BOOLEAN, TINYINT(1)
+- SQL Server: BIT
+- MS Access: YESNO
+
+It is important to note that some data types may be specific to a particular SQL implementation or version, and there may be some variations in data type names or syntax. Additionally, different database management systems may handle data types differently in terms of storage size and performance.
+
+When designing a database schema, it is important to choose appropriate data types for each column based on the nature of the data being stored, the expected size of the data, and any performance or storage considerations.
+
+## Day 48 - **SQL Keywords**
+
+SQL keywords are reserved words that have a specific meaning in the SQL language and cannot be used for other purposes, such as column or table names. Some common SQL keywords include:
+
+- SELECT: used to retrieve data from one or more tables
+- FROM: used to specify the table(s) from which data is being retrieved
+- WHERE: used to filter data based on specified criteria
+- JOIN: used to combine data from two or more tables based on a common column(s)
+- INSERT: used to insert new data into a table
+- UPDATE: used to update existing data in a table
+- DELETE: used to delete data from a table
+- GROUP BY: used to group data based on one or more columns
+- ORDER BY: used to sort data based on one or more columns
+- HAVING: used to filter data based on specified criteria after a GROUP BY clause
+
+In addition to these keywords, each SQL implementation may have its own set of additional keywords and syntax rules. For example, MySQL has additional keywords such as LIMIT and OFFSET for limiting the number of results returned, while SQL Server has keywords such as TOP for achieving the same functionality.
+
+It is important to use SQL keywords correctly in order to write valid and efficient SQL queries. Some common mistakes when using SQL keywords include using reserved words as column or table names, misspelling keywords, and using keywords in the wrong order or context.
+
+## Day 49 - **SQL ADD Keyword**
+
+The SQL ADD keyword is used to add a new column or constraint to an existing table. The syntax for using the ADD keyword varies slightly between different SQL implementations, but the basic structure is as follows:
+
+```
+
+ALTER TABLE table_name
+ADD column_name data_type;
+
+```
+
+In this syntax, **`ALTER TABLE`** is the SQL statement used to modify an existing table, **`table_name`** is the name of the table being modified, **`ADD`** is the keyword indicating that a new column or constraint is being added, **`column_name`** is the name of the new column being added, and **`data_type`** is the data type of the new column.
+
+For example, to add a new column named **`email`** of data type **`VARCHAR(255)`** to an existing table named **`users`**, the following SQL query can be used:
+
+```
+
+ALTER TABLE users
+ADD email VARCHAR(255);
+
+```
+
+In addition to adding columns, the ADD keyword can also be used to add constraints such as PRIMARY KEY, FOREIGN KEY, CHECK, and UNIQUE constraints to an existing table. The syntax for adding constraints using the ADD keyword is similar, but with a slightly different syntax for each type of constraint.
+
+## Day 50 - **SQL ALTER Keyword**
+
+SQL ALTER keyword is used to modify the structure of an existing table in a database. The most common use of the ALTER keyword is to add, modify, or remove columns from a table. The syntax for using the ALTER keyword to modify a table varies slightly between different SQL implementations, but the basic structure is as follows:
+
+```
+
+ALTER TABLE table_name
+action;
+
+```
+
+In this syntax, **`ALTER TABLE`** is the SQL statement used to modify an existing table, **`table_name`** is the name of the table being modified, and **`action`** is the specific action being performed on the table.
+
+Some common actions that can be performed using the ALTER keyword include:
+
+- Adding a new column to a table:
+
+```
+
+ALTER TABLE table_name
+ADD column_name data_type;
+
+```
+
+- Modifying the data type of an existing column:
+
+```
+
+ALTER TABLE table_name
+ALTER COLUMN column_name new_data_type;
+
+```
+
+- Renaming a column in a table:
+
+```
+
+ALTER TABLE table_name
+RENAME COLUMN old_column_name TO new_column_name;
+
+```
+
+- Removing a column from a table:
+
+```
+
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+```
+
+- Adding a new constraint to a table, such as a primary key or foreign key constraint:
+
+```
+
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name constraint_type (columns);
+
+```
+
+In addition to these basic actions, the ALTER keyword can also be used for more advanced table modifications, such as changing the name of a table or adding an index. However, the specific syntax for these types of modifications can vary significantly between different SQL implementations.
+
+## Day 51 - **SQL ALTER COLUMN Keyword**
+
+SQL ALTER COLUMN keyword is used to modify the structure of a column in an existing database table. The ALTER COLUMN statement is part of the Data Definition Language (DDL) in SQL and can be used to change the data type, size, nullability, and other properties of a column.
+
+The syntax of the ALTER COLUMN statement is as follows:
+
+```
+
+ALTER TABLE table_name
+ALTER COLUMN column_name new_data_type [NULL | NOT NULL]
+
+```
+
+Here, **`table_name`** is the name of the table containing the column to be modified, **`column_name`** is the name of the column to be modified, **`new_data_type`** is the new data type of the column, and **`NULL`** or **`NOT NULL`** is used to specify whether the column allows NULL values or not.
+
+For example, the following SQL statement modifies the data type of the **`age`** column in the **`students`** table to **`INT`**:
+
+```
+
+ALTER TABLE students
+ALTER COLUMN age INT;
+
+```
+
+Note that the ALTER COLUMN statement can also be used to add or drop default values, add or drop constraints, and perform other modifications to the column's structure. The exact syntax may vary depending on the specific database management system being used.
+
+## Day 52 - **SQL ALTER TABLE Keyword**
+
+SQL ALTER TABLE keyword is used to modify the structure of an existing database table. The ALTER TABLE statement is part of the Data Definition Language (DDL) in SQL and can be used to add or drop columns, change column data types, add or drop constraints, rename tables, and perform other modifications to the table's structure.
+
+The syntax of the ALTER TABLE statement is as follows:
+
+```
+
+ALTER TABLE table_name
+ADD column_name data_type [NULL | NOT NULL],
+DROP COLUMN column_name,
+ALTER COLUMN column_name new_data_type [NULL | NOT NULL],
+ADD CONSTRAINT constraint_name constraint_type (column_name),
+DROP CONSTRAINT constraint_name,
+RENAME TO new_table_name
+
+```
+
+Here, **`table_name`** is the name of the table to be modified, and the keywords **`ADD`**, **`DROP`**, **`ALTER`**, **`ADD CONSTRAINT`**, **`DROP CONSTRAINT`**, and **`RENAME TO`** are used to specify the type of modification to be made.
+
+For example, the following SQL statement adds a new column **`email`** of data type **`VARCHAR(255)`** to the **`users`** table:
+
+```
+
+ALTER TABLE users
+ADD email VARCHAR(255);
+
+```
+
+Note that the ALTER TABLE statement can be a potentially dangerous operation, as it can permanently modify the structure and content of a database table. Therefore, it is essential to exercise caution and take appropriate precautions, such as backing up the database before executing the statement.
+
+## Day 53 - **SQL AND Keyword**
+
+SQL AND keyword is a logical operator used to combine multiple conditions in a SQL statement. The AND operator requires that all conditions separated by it must be true for the overall condition to be true.
+
+The syntax for using the AND operator in a SQL WHERE clause is as follows:
+
+```
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+
+```
+
+Here, **`condition1`**, **`condition2`**, **`condition3`**, etc. are the conditions to be evaluated, and the AND operator is used to combine them.
+
+For example, the following SQL statement selects all records from the **`customers`** table where the **`country`** column is **`Germany`** and the **`city`** column is **`Berlin`**:
+
+```
+
+SELECT *
+FROM customers
+WHERE country = 'Germany' AND city = 'Berlin';
+
+```
+
+In this example, the two conditions separated by the AND operator must both be true for the overall condition to be true. Only records that meet both criteria will be returned by the SELECT statement.
+
+Note that the AND operator can be used in conjunction with other logical operators, such as OR and NOT, to create more complex conditions in a SQL statement.
+
+## Day 54 - **SQL ANY Keyword**
+
+SQL ANY keyword is used in conjunction with a comparison operator to evaluate a condition against multiple values in a subquery or a list of values.
+
+The syntax for using the ANY keyword is as follows:
+
+```
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ANY (subquery or list of values);
+
+```
+
+Here, **`column_name`** is the name of the column in the table that you want to evaluate, **`operator`** is the comparison operator (such as **`=`**, **`>`**, **`<`**, **`>=`**, **`<=`**, **`<>`**, **`IN`**, **`LIKE`**, etc.), and **`subquery or list of values`** is the set of values against which you want to compare.
+
+For example, the following SQL statement selects all the customers from the "Customers" table whose customer IDs match any of the values in the subquery:
+
+```
+
+SELECT *
+FROM Customers
+WHERE CustomerID = ANY (SELECT CustomerID FROM Orders WHERE OrderDate = '2022-01-01');
+
+```
+
+In this case, the subquery returns a list of customer IDs for the orders that were placed on January 1st, 2022, and the ANY keyword is used to compare the CustomerID column with this list of values. If the CustomerID matches any of the values in the list, the row is returned.
+
+## Day 55 - **SQL AS Keyword**
+
+SQL AS keyword is used to give an alias or a temporary name to a table or a column in the query result. It is often used to make the output more meaningful or to simplify the syntax of the query.
+
+The syntax for using the AS keyword to assign an alias to a column is as follows:
+
+```
+
+SELECT column_name AS alias_name
+FROM table_name;
+
+```
+
+Here, **`column_name`** is the name of the column in the table that you want to alias, and **`alias_name`** is the temporary name that you want to assign to the column.
+
+For example, the following SQL statement selects the customer name and the total amount of orders, and assigns an alias **`TotalAmount`** to the calculated column:
+
+```
+
+SELECT Customers.CustomerName, SUM(Orders.Amount) AS TotalAmount
+FROM Customers
+JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+GROUP BY Customers.CustomerName;
+
+```
+
+In this case, the **`SUM`** function is used to calculate the total amount of orders for each customer, and the **`AS`** keyword is used to assign an alias **`TotalAmount`** to the calculated column in the query result.
+
+The AS keyword can also be used to give an alias to a table or a subquery, like this:
+
+```
+
+SELECT *
+FROM (SELECT column_name FROM table_name) AS alias_name;
+
+```
+
+In this case, the **`AS`** keyword is used to assign a temporary name **`alias_name`** to the subquery result set, which can then be used as a table in the outer query.
+
+## Day 56 - **SQL ASC Keyword**
+
+SQL ASC keyword is used in the ORDER BY clause of a SELECT statement to sort the result set in ascending order.
+
+The syntax for using the ASC keyword is as follows:
+
+```
+
+SELECT column_name(s)
+FROM table_name
+ORDER BY column_name ASC;
+
+```
+
+Here, **`column_name`** is the name of the column by which you want to sort the result set in ascending order.
+
+For example, the following SQL statement selects all the customers from the "Customers" table and sorts them in ascending order by their last names:
+
+```
+
+SELECT *
+FROM Customers
+ORDER BY LastName ASC;
+
+```
+
+In this case, the result set is sorted in ascending order by the values in the LastName column.
+
+Note that the ASC keyword is optional in SQL, as the default sorting order is ascending. So, the above example can also be written without the ASC keyword, like this:
+
+```
+
+SELECT *
+FROM Customers
+ORDER BY LastName;
+
+```
+
+Both of these statements will produce the same result set, sorted in ascending order by the values in the LastName column.
+
+## Day 57 - **SQL BACKUP DATABASE Keyword**
+
+SQL BACKUP DATABASE keyword is used to create a backup of a SQL Server database.
+
+The syntax for using the BACKUP DATABASE keyword is as follows:
+
+```
+
+BACKUP DATABASE database_name
+TO backup_device
+
+```
+
+Here, **`database_name`** is the name of the database that you want to back up, and **`backup_device`** is the physical device or location where you want to store the backup, such as a disk, tape, or a network share.
+
+For example, the following SQL statement creates a full backup of the "MyDatabase" database and stores it in a backup file named "MyDatabase.bak" on the local disk:
+
+```
+
+BACKUP DATABASE MyDatabase
+TO DISK = 'C:\Backup\MyDatabase.bak'
+
+```
+
+In this case, the **`TO DISK`** option specifies that the backup should be written to a disk file, and the full path and file name of the backup file are provided as the argument.
+
+The BACKUP DATABASE keyword also supports various other options and parameters, such as specifying the backup type, compression, encryption, media options, and more. These options can be used to customize the backup process according to your specific requirements.
+
+Note that the BACKUP DATABASE keyword requires the user to have appropriate permissions to perform the backup operation, and the backup device must have sufficient space to store the backup.
+
+## Day 58 - **SQL BETWEEN Keyword**
+
+SQL BETWEEN keyword is used in a WHERE clause to specify a range of values that a column value must fall within.
+
+The syntax for using the BETWEEN keyword is as follows:
+
+```
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+
+```
+
+Here, **`column_name`** is the name of the column that you want to filter on, and **`value1`** and **`value2`** are the minimum and maximum values of the range, respectively.
+
+For example, the following SQL statement selects all the orders from the "Orders" table where the order date is between January 1, 2022, and March 31, 2022:
+
+```
+
+SELECT *
+FROM Orders
+WHERE OrderDate BETWEEN '2022-01-01' AND '2022-03-31';
+
+```
+
+In this case, the **`BETWEEN`** keyword is used to specify the range of values for the OrderDate column, and all the rows where the OrderDate falls within this range are selected.
+
+Note that the **`BETWEEN`** keyword is inclusive, meaning that the values of **`value1`** and **`value2`** are included in the range. So, in the above example, orders with the dates January 1, 2022, and March 31, 2022, will be included in the result set.
+
+Also, it is important to note that the **`BETWEEN`** keyword works with numerical and date/time values, as well as with character strings that represent numerical or date/time values in a recognized format.
+
+## Day 59 - **SQL CASE Keyword**
+
+SQL CASE keyword is used to add conditional logic to a SQL statement, allowing you to perform different actions based on different conditions. The CASE statement can be used in various SQL statements, including SELECT, WHERE, ORDER BY, and GROUP BY.
+
+The syntax for using the CASE keyword is as follows:
+
+```
+
+SELECT column_name,
+    CASE
+        WHEN condition1 THEN result1
+        WHEN condition2 THEN result2
+        ELSE result3
+    END
+FROM table_name;
+
+```
+
+Here, **`column_name`** is the name of the column that you want to include in the query result, and **`condition1`**, **`condition2`**, and **`result3`** are the conditions and corresponding results that you want to apply to the data.
+
+For example, the following SQL statement selects the customer name and their credit status, and assigns a value of "Good" or "Bad" based on their credit limit:
+
+```
+
+SELECT CustomerName,
+    CASE
+        WHEN CreditLimit > 10000 THEN 'Good'
+        ELSE 'Bad'
+    END AS CreditStatus
+FROM Customers;
+
+```
+
+In this case, the **`CASE`** statement is used to add a conditional logic that assigns the value "Good" to customers with a credit limit greater than 10000, and "Bad" to all other customers.
+
+Note that the **`CASE`** keyword can be used with multiple conditions and corresponding results by using multiple **`WHEN`** clauses. Also, an **`ELSE`** clause can be included to specify a default value if none of the conditions are met.
+
+The **`CASE`** keyword is a powerful tool for adding conditional logic to SQL queries and is often used in combination with other SQL keywords to perform complex data analysis and transformation.
+
+## Day 60 - **SQL CHECK Keyword**
+
+SQL CHECK keyword is used to define a condition that must be satisfied by the values in a column when new data is inserted or updated in a table. It is also known as a check constraint.
+
+The syntax for using the CHECK keyword is as follows:
+
+```
+
+CREATE TABLE table_name (
+    column1 datatype constraint_name CHECK (condition),
+    column2 datatype,
+    ...
+);
+
+```
+
+Here, **`column1`** is the name of the column that you want to add the constraint to, **`datatype`** is the data type of the column, **`constraint_name`** is an optional name for the constraint, and **`condition`** is the condition that must be satisfied by the values in the column.
+
+For example, the following SQL statement creates a table named "Students" with a check constraint on the "Age" column to ensure that the age of the students is between 18 and 30:
+
+```
+
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT CHECK (Age BETWEEN 18 AND 30),
+    Gender VARCHAR(10)
+);
+
+```
+
+In this case, the **`CHECK`** keyword is used to define a condition that must be satisfied by the values in the Age column, and any attempts to insert or update data in the table that violates this condition will result in an error.
+
+Note that the **`CHECK`** keyword can be used with various logical operators, such as **`=`**, **`<>`**, **`<`**, **`>`**, **`<=`**, **`>=`**, **`BETWEEN`**, **`IN`**, **`LIKE`**, and more, to define complex conditions for the values in a column.
+
+The **`CHECK`** constraint is a powerful tool for ensuring data integrity and consistency in a database, and it can be used to enforce various business rules and policies on the data.
+
+## Day 61 - **SQL CONSTRAINT Keyword**
+
+SQL CONSTRAINT keyword is used to define rules and restrictions on the data in a table. Constraints are used to ensure data integrity and consistency in a database, by specifying conditions that must be met by the data.
+
+There are several types of constraints that can be defined using the CONSTRAINT keyword in SQL, including:
+
+1. Primary key constraint: A primary key constraint is used to ensure that each row in a table is uniquely identified by a specific column or combination of columns. The syntax for defining a primary key constraint is as follows:
+
+```
+
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    ...
+    CONSTRAINT pk_constraint_name PRIMARY KEY (column1, column2, ...)
+);
+
+```
+
+1. Foreign key constraint: A foreign key constraint is used to ensure that data in one table corresponds to data in another table. The syntax for defining a foreign key constraint is as follows:
+
+```
+
+CREATE TABLE table_name1 (
+    column1 datatype,
+    column2 datatype,
+    ...
+    CONSTRAINT fk_constraint_name FOREIGN KEY (column1, column2, ...) REFERENCES table_name2(column3, column4, ...)
+);
+
+```
+
+1. Unique constraint: A unique constraint is used to ensure that each value in a column is unique. The syntax for defining a unique constraint is as follows:
+
+```
+
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    ...
+    CONSTRAINT unique_constraint_name UNIQUE (column1, column2, ...)
+);
+
+```
+
+1. Check constraint: A check constraint is used to ensure that the data in a column meets a specific condition or set of conditions. The syntax for defining a check constraint is as follows:
+
+```
+
+CREATE TABLE table_name (
+    column1 datatype CONSTRAINT check_constraint_name CHECK (condition),
+    column2 datatype,
+    ...
+);
+
+```
+
+1. Not null constraint: A not null constraint is used to ensure that a column cannot contain null values. The syntax for defining a not null constraint is as follows:
+
+```
+
+CREATE TABLE table_name (
+    column1 datatype NOT NULL,
+    column2 datatype,
+    ...
+);
+
+```
+
+In each of these examples, the CONSTRAINT keyword is used to define a specific type of constraint on the data in a table. Constraints are a powerful tool for ensuring data integrity and consistency in a database, and they are commonly used in combination with other SQL statements to define complex data models and relationships.
+
+## Day 62 - **SQL CREATE Keyword**
+
+SQL CREATE keyword is used to create new database objects, such as tables, views, indexes, and procedures. The basic syntax for using the CREATE keyword is as follows:
+
+```
+
+CREATE object_type object_name
+(
+    column1 datatype,
+    column2 datatype,
+    ...
+);
+
+```
+
+Here, **`object_type`** specifies the type of object to be created, such as TABLE, VIEW, INDEX, or PROCEDURE, and **`object_name`** is the name of the object. The **`column1`**, **`column2`**, etc. are the columns that will be included in the object, along with their data types.
+
+For example, to create a new table named "Students" with columns for student ID, name, age, and gender, the SQL statement would be:
+
+```
+
+CREATE TABLE Students
+(
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT,
+    Gender VARCHAR(10)
+);
+
+```
+
+This would create a new table with the name "Students", containing four columns named "StudentID", "Name", "Age", and "Gender", with the first column defined as the primary key.
+
+Similarly, to create a new view that selects data from an existing table, the SQL statement would be:
+
+```
+
+CREATE VIEW ViewName AS
+SELECT column1, column2, ...
+FROM TableName
+WHERE condition;
+
+```
+
+In this case, **`ViewName`** is the name of the new view, **`TableName`** is the name of the existing table that the view will select data from, and **`condition`** is an optional condition that can be used to filter the data that is returned by the view.
+
+Overall, the CREATE keyword is a fundamental part of SQL, and it is used extensively to create new database objects and define their properties and relationships.
+
+## Day 63 - **SQL CREATE INDEX Keyword**
+
+SQL CREATE INDEX keyword is used to create a new index on one or more columns of a table. An index is a data structure that improves the performance of SQL queries by allowing the database to quickly retrieve data based on the values in the indexed columns.
+
+The basic syntax for using the CREATE INDEX keyword is as follows:
+
+```
+CREATE INDEX index_name
+ON table_name (column1, column2, ...);
+
+```
+
+Here, **`index_name`** is the name of the new index, and **`table_name`** is the name of the table on which the index will be created. The **`column1`**, **`column2`**, etc. are the names of the columns that will be included in the index.
+
+For example, to create an index named "idx_students" on the "Students" table, based on the "StudentID" column, the SQL statement would be:
+
+```
+
+CREATE INDEX idx_students
+ON Students (StudentID);
+
+```
+
+This would create a new index named "idx_students" on the "Students" table, based on the "StudentID" column.
+
+Indexes can improve the performance of SQL queries by allowing the database to quickly retrieve data based on the values in the indexed columns, rather than having to scan the entire table. However, indexes can also have a negative impact on performance if they are not used effectively, so it is important to carefully consider which columns to index and how to structure the indexes to best support the queries that will be run against the table.
+
+## Day 64 - **SQL CREATE PROCEDURE**
+
+SQL CREATE PROCEDURE keyword is used to create a stored procedure in a database. A stored procedure is a pre-compiled set of SQL statements that can be executed by a database server. Stored procedures are often used to encapsulate complex business logic, to provide an interface to legacy code, or to improve performance by reducing the number of network round-trips required to execute a series of related SQL statements.
+
+The basic syntax for using the CREATE PROCEDURE keyword is as follows:
+
+```
+CREATE PROCEDURE procedure_name
+    [ ( parameter_name data_type [ = default_value ] ) [ , ... ] ]
+AS
+BEGIN
+    sql_statement;
+    [ sql_statement; ... ]
+END;
+
+```
+
+Here, **`procedure_name`** is the name of the new stored procedure, and **`parameter_name`** is an optional parameter that can be used to pass values into the stored procedure. The **`data_type`** specifies the data type of the parameter, and **`default_value`** is an optional default value for the parameter.
+
+The **`AS`** keyword is used to begin the definition of the stored procedure, and the **`BEGIN`** and **`END`** keywords are used to define the body of the stored procedure, which can contain one or more SQL statements.
+
+For example, to create a stored procedure named "get_student_info" that retrieves information about a student from a database, the SQL statement would be:
+
+```
+CREATE PROCEDURE get_student_info
+    @student_id INT
+AS
+BEGIN
+    SELECT * FROM Students WHERE StudentID = @student_id;
+END;
+
+```
+
+This would create a new stored procedure named "get_student_info" that accepts a single parameter, **`@student_id`**, and returns a result set containing all columns from the "Students" table where the "StudentID" column matches the specified value.
+
+Once a stored procedure has been created, it can be executed by calling its name from another SQL statement or from an application program that connects to the database.
+
+## Day 65 - **SQL CREATE UNIQUE INDEX Keyword**
+
+SQL CREATE UNIQUE INDEX keyword is used to create a new unique index on one or more columns of a table. A unique index is similar to a regular index, but it enforces a constraint that ensures that each value in the indexed column(s) is unique, i.e., it cannot be duplicated.
+
+The basic syntax for using the CREATE UNIQUE INDEX keyword is as follows:
+
+```
+CREATE UNIQUE INDEX index_name
+ON table_name (column1, column2, ...);
+
+```
+
+Here, **`index_name`** is the name of the new unique index, and **`table_name`** is the name of the table on which the index will be created. The **`column1`**, **`column2`**, etc. are the names of the columns that will be included in the index.
+
+For example, to create a unique index named "idx_students_email" on the "Students" table, based on the "Email" column, the SQL statement would be:
+
+```
+CREATE UNIQUE INDEX idx_students_email
+ON Students (Email);
+
+```
+
+This would create a new unique index named "idx_students_email" on the "Students" table, based on the "Email" column.
+
+Unlike regular indexes, unique indexes cannot be used to enforce a foreign key constraint, as they only ensure that the values in the indexed column(s) are unique within the same table. However, unique indexes can be used to improve the performance of SQL queries that involve the indexed column(s), as they allow the database to quickly retrieve data based on the values in the indexed column(s).
+
+## Day 66 - **SQL CREATE VIEW Keyword**
+
+SQL CREATE VIEW keyword is used to create a virtual table based on the result of a SELECT query. A view is a stored SQL query that can be referenced as if it were a table, and it can be used to simplify complex queries, to provide a controlled view of data to different users or applications, or to hide sensitive or irrelevant data from users.
+
+The basic syntax for using the CREATE VIEW keyword is as follows:
+
+```
+CREATE VIEW view_name
+AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+```
+
+Here, **`view_name`** is the name of the new view, and the SELECT statement defines the columns and data that will be included in the view. The **`table_name`** and **`condition`** are optional, and they define the table(s) and the condition(s) that the data should be retrieved from.
+
+For example, to create a view named "student_info" that retrieves information about students from a "Students" table, the SQL statement would be:
+
+```
+CREATE VIEW student_info
+AS
+SELECT StudentID, FirstName, LastName, Email
+FROM Students
+WHERE Status = 'Active';
+
+```
+
+This would create a new view named "student_info" that retrieves the columns "StudentID", "FirstName", "LastName", and "Email" from the "Students" table, but only for students whose "Status" is set to "Active".
+
+Once a view has been created, it can be used like a regular table in SQL queries, and any changes made to the underlying tables will be reflected in the view. However, it's important to note that views do not store any data themselves, and they are only a virtual representation of the underlying data.
+
+## Day 67 - **SQL DELETE Keyword**
+
+SQL DELETE keyword is used to delete one or more rows from a table. The DELETE statement can be used to remove either all rows or a subset of rows based on certain criteria.
+
+The basic syntax for using the DELETE keyword is as follows:
+
+```
+DELETE FROM table_name
+WHERE condition;
+
+```
+
+Here, **`table_name`** is the name of the table from which rows will be deleted, and **`condition`** is the expression that specifies which rows to delete. If the **`WHERE`** clause is omitted, then all rows in the table will be deleted.
+
+For example, to delete all rows from a table named "Customers", the SQL statement would be:
+
+```
+DELETE FROM Customers;
+
+```
+
+This would delete all rows from the "Customers" table.
+
+Alternatively, to delete only the rows from the "Customers" table where the "City" column is set to "Paris", the SQL statement would be:
+
+```
+DELETE FROM Customers
+WHERE City = 'Paris';
+
+```
+
+This would delete only the rows from the "Customers" table where the "City" column is set to "Paris".
+
+It's important to note that the DELETE statement permanently removes the specified rows from the table, and this operation cannot be undone. Therefore, it's recommended to use the DELETE statement with caution and to always make a backup of the table or the database before executing a DELETE statement.
+
+## Day 68 - SQL DESC Keyword
+
+SQL DESC keyword is short for "DESCRIBE", and it is used to display the structure or schema of a table in a database. The DESC keyword can be used to retrieve information about the columns in a table, including their names, data types, and any constraints that are defined on them.
+
+The basic syntax for using the DESC keyword is as follows:
+
+```
+DESC table_name;
+
+```
+
+Here, **`table_name`** is the name of the table whose structure will be described.
+
+For example, to describe the structure of a table named "Customers", the SQL statement would be:
+
+```
+DESC Customers;
+
+```
+
+This would display information about the columns in the "Customers" table, including their names, data types, and any constraints that are defined on them.
+
+The output of the DESC command will vary depending on the database management system (DBMS) being used. Some DBMSs may display additional information, such as the default values or indexes that are defined on the columns.
+
+It's important to note that the DESC command is not part of the SQL standard, and it may not be supported by all database management systems. In some cases, the equivalent command may be "SHOW COLUMNS FROM table_name" or "SHOW FIELDS FROM table_name".
+
+## Day 69 - **SQL SELECT DISTINCT Keyword**
+
+SQL SELECT DISTINCT keyword is used to retrieve unique or distinct values from a table. The SELECT DISTINCT statement is useful when you want to eliminate duplicate rows from the result set returned by a SELECT statement.
+
+The basic syntax for using the SELECT DISTINCT keyword is as follows:
+
+```
+SELECT DISTINCT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+```
+
+Here, **`column1`**, **`column2`**, ... are the names of the columns whose unique values will be retrieved, and **`table_name`** is the name of the table from which the values will be retrieved. The **`WHERE`** clause is optional and can be used to filter the rows that will be included in the result set.
+
+For example, to retrieve the unique values from a column named "City" in a table named "Customers", the SQL statement would be:
+
+```
+SELECT DISTINCT City
+FROM Customers;
+
+```
+
+This would retrieve all unique values from the "City" column in the "Customers" table.
+
+Alternatively, to retrieve the unique values from two columns named "City" and "Country" in a table named "Customers", the SQL statement would be:
+
+```
+SELECT DISTINCT City, Country
+FROM Customers
+WHERE Country = 'USA';
+
+```
+
+This would retrieve all unique combinations of values from the "City" and "Country" columns in the "Customers" table, but only for customers who live in the United States.
+
+It's important to note that the SELECT DISTINCT statement may be slower than a regular SELECT statement because it requires the database to compare and eliminate duplicate rows. Therefore, it's recommended to use the SELECT DISTINCT statement only when necessary and to use appropriate indexing and query optimization techniques to improve performance.
+
+## Day 70 - **SQL DROP TABLE and TRUNCATE TABLE Keywords**
+
+SQL DROP TABLE and TRUNCATE TABLE keywords are used to remove all data and the table structure from a table in a database. Although both commands have similar functionality, they differ in how they accomplish the task.
+
+The DROP TABLE Keyword:
+
+The DROP TABLE keyword is used to remove an entire table from a database, including all data, indexes, and constraints associated with the table. The basic syntax for using the DROP TABLE keyword is as follows:
+
+```
+DROP TABLE table_name;
+
+```
+
+Here, **`table_name`** is the name of the table that you want to drop.
+
+For example, to drop a table named "Customers", the SQL statement would be:
+
+```
+DROP TABLE Customers;
+
+```
+
+This would remove the entire "Customers" table from the database.
+
+It's important to note that the DROP TABLE command is a permanent action and cannot be undone. Therefore, it's recommended to use the DROP TABLE command with caution and to always make a backup of the table or the database before executing a DROP TABLE statement.
+
+The TRUNCATE TABLE Keyword:
+
+The TRUNCATE TABLE keyword is used to remove all data from a table, but it preserves the table structure, indexes, and constraints. The basic syntax for using the TRUNCATE TABLE keyword is as follows:
+
+```
+TRUNCATE TABLE table_name;
+
+```
+
+Here, **`table_name`** is the name of the table that you want to truncate.
+
+For example, to truncate a table named "Customers", the SQL statement would be:
+
+```
+TRUNCATE TABLE Customers;
+
+```
+
+This would remove all data from the "Customers" table but would preserve the table structure, indexes, and constraints.
+
+It's important to note that the TRUNCATE TABLE command is also a permanent action and cannot be undone. Therefore, it's recommended to use the TRUNCATE TABLE command with caution and to always make a backup of the table or the database before executing a TRUNCATE TABLE statement.
+
+## Day 71 - **SQL EXEC Keyword**
+
+SQL EXEC keyword is used to execute a stored procedure or a dynamically constructed SQL statement within a stored procedure in SQL Server. The basic syntax for using the EXEC keyword is as follows:
+
+```
+EXEC procedure_name
+
+```
+
+Here, **`procedure_name`** is the name of the stored procedure that you want to execute. The EXEC keyword can also be used to execute a dynamically constructed SQL statement within a stored procedure. In this case, the SQL statement is passed as a string to the EXEC keyword, and the string is executed as a separate batch.
+
+For example, to execute a stored procedure named "GetCustomerByID" that takes a customer ID as a parameter, the SQL statement would be:
+
+```
+EXEC GetCustomerByID 1234;
+
+```
+
+This would execute the "GetCustomerByID" stored procedure with a customer ID of 1234.
+
+Alternatively, to execute a dynamically constructed SQL statement within a stored procedure, the SQL statement would be constructed as a string and passed as a parameter to the EXEC keyword, as follows:
+
+```
+DECLARE @sql VARCHAR(MAX);
+SET @sql = 'SELECT * FROM Customers WHERE CustomerID = 1234';
+EXEC (@sql);
+
+```
+
+This would execute a SELECT statement that retrieves all columns from the "Customers" table where the customer ID is equal to 1234. The SQL statement is constructed as a string and passed as a parameter to the EXEC keyword, which executes the statement as a separate batch.
+
+## Day 72 - **SQL EXISTS Keyword**
+
+SQL EXISTS keyword is used to check for the existence of a record or set of records in a subquery. The EXISTS operator returns a Boolean value (TRUE or FALSE) indicating whether or not the subquery returns any rows.
+
+The basic syntax for using the EXISTS keyword is as follows:
+
+```
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS (subquery);
+
+```
+
+Here, **`column_name(s)`** are the columns that you want to retrieve from the table, **`table_name`** is the name of the table that you want to query, and **`subquery`** is a SELECT statement that returns a set of records to be evaluated.
+
+For example, to check if any orders have been placed by a customer with a customer ID of 1234, the SQL statement would be:
+
+```
+SELECT *
+FROM Orders
+WHERE EXISTS (
+  SELECT *
+  FROM Customers
+  WHERE Customers.CustomerID = Orders.CustomerID
+  AND Customers.CustomerID = 1234
+);
+
+```
+
+In this example, the subquery retrieves all customers with a customer ID of 1234, and the outer query retrieves all orders where the customer ID matches the results of the subquery. If any orders exist for the specified customer ID, the EXISTS operator returns TRUE.
+
+It's important to note that the EXISTS operator does not return any actual data from the subquery, only a Boolean value indicating whether or not the subquery returns any rows. Therefore, the EXISTS operator is often used in combination with other operators, such as NOT, to check for the absence of a record or set of records.
+
+## Day 73 - **SQL FOREIGN KEY Keyword**
+
+In SQL, a FOREIGN KEY is a constraint that is used to enforce referential integrity between two tables. The FOREIGN KEY constraint is used to link two tables together based on the value of a column or set of columns in each table. The purpose of this constraint is to ensure that data in one table corresponds to data in another table.
+
+The basic syntax for creating a FOREIGN KEY constraint is as follows:
+
+```
+CREATE TABLE table_name
+(
+  column1 datatype [ NULL | NOT NULL ],
+  column2 datatype [ NULL | NOT NULL ],
+  ...
+
+  CONSTRAINT fk_constraint_name
+    FOREIGN KEY (column_name)
+    REFERENCES parent_table (parent_column_name)
+);
+
+```
+
+Here, **`table_name`** is the name of the child table, **`column1`**, **`column2`**, etc. are the columns in the child table, **`fk_constraint_name`** is the name of the FOREIGN KEY constraint, **`column_name`** is the name of the column in the child table that references the parent table, **`parent_table`** is the name of the parent table, and **`parent_column_name`** is the name of the column in the parent table that is referenced by the child table.
+
+For example, to create a FOREIGN KEY constraint that links the "Orders" table to the "Customers" table based on the "CustomerID" column, the SQL statement would be:
+
+```
+CREATE TABLE Orders
+(
+  OrderID int NOT NULL,
+  CustomerID int NOT NULL,
+  OrderDate date,
+
+  CONSTRAINT FK_CustomersOrders
+    FOREIGN KEY (CustomerID)
+    REFERENCES Customers(CustomerID)
+);
+
+```
+
+In this example, the FOREIGN KEY constraint is named "FK_CustomersOrders" and links the "Orders" table to the "Customers" table based on the "CustomerID" column. The constraint ensures that any value entered into the "CustomerID" column in the "Orders" table must correspond to a value in the "CustomerID" column of the "Customers" table.
+
+## Day 74 - **SQL CREATE PROCEDURE Keyword**
+
+In SQL, the CREATE PROCEDURE statement is used to create a stored procedure, which is a set of SQL statements that can be stored in a database and executed later as a single unit. Stored procedures are commonly used to encapsulate complex SQL logic that is reused across multiple database applications.
+
+The basic syntax for creating a stored procedure is as follows:
+
+```
+CREATE PROCEDURE procedure_name
+  [ ( parameter [ datatype ] [ = default ] [, ...] ) ]
+AS
+BEGIN
+  SQL statement(s);
+END;
+
+```
+
+Here, **`procedure_name`** is the name of the stored procedure, **`parameter`** is an optional parameter that can be passed to the stored procedure, **`datatype`** is the data type of the parameter, and **`default`** is the default value of the parameter.
+
+For example, to create a stored procedure that retrieves all orders for a given customer, the SQL statement would be:
+
+```
+CREATE PROCEDURE sp_GetCustomerOrders
+  @CustomerID int
+AS
+BEGIN
+  SELECT *
+  FROM Orders
+  WHERE CustomerID = @CustomerID;
+END;
+
+```
+
+In this example, the stored procedure is named "sp_GetCustomerOrders" and accepts a single parameter, **`@CustomerID`**. The stored procedure uses a SELECT statement to retrieve all orders from the "Orders" table where the **`CustomerID`** column matches the **`@CustomerID`** parameter.
+
+Once the stored procedure is created, it can be executed by calling its name and passing the required parameter(s), like so:
+
+```
+EXEC sp_GetCustomerOrders @CustomerID = 1234;
+
+```
+
+This will execute the "sp_GetCustomerOrders" stored procedure with a value of 1234 for the **`@CustomerID`** parameter, returning all orders for the specified customer.
+
+## Day 75 - SQL RIGHT JOIN Keyword
+
+In SQL, a RIGHT JOIN is a type of join that returns all the records from the right table (the second table specified in the join clause) and matching records from the left table (the first table specified in the join clause). If there are no matching records in the left table, NULL values are returned for those columns.
+
+The basic syntax for a RIGHT JOIN is as follows:
+
+```
+SELECT column1, column2, ...
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+
+```
+
+Here, **`column1`**, **`column2`**, etc. are the names of the columns to be returned in the result set, **`table1`** is the name of the first table, **`table2`** is the name of the second table, and **`column_name`** is the name of the column(s) that are used to join the two tables.
+
+For example, consider the following two tables, "employees" and "departments":
+
+```
+employees:
++----+----------+-------+
+| ID | Name     | DeptID|
++----+----------+-------+
+| 1  | John     | 1     |
+| 2  | Mary     | 2     |
+| 3  | David    | 3     |
+| 4  | Sarah    | 2     |
+| 5  | Michael  | NULL  |
++----+----------+-------+
+
+departments:
++--------+--------------+
+| DeptID | Department   |
++--------+--------------+
+| 1      | HR           |
+| 2      | IT           |
+| 3      | Finance      |
++--------+--------------+
+
+```
+
+To return all employees and their departments, including employees with no department (i.e., **`NULL`** department ID), we can use a RIGHT JOIN:
+
+```
+SELECT e.Name, d.Department
+FROM employees e
+RIGHT JOIN departments d
+ON e.DeptID = d.DeptID;
+
+```
+
+This will return the following result set:
+
+```
++---------+--------------+
+| Name    | Department   |
++---------+--------------+
+| John    | HR           |
+| Mary    | IT           |
+| David   | Finance      |
+| Sarah   | IT           |
+| Michael | NULL         |
++---------+--------------+
+
+```
+
+Note that the "Michael" row is included in the result set, even though there is no matching department record for that employee.
+
+## Day 76 - **SQL SELECT TOP, LIMIT and ROWNUM Keywords**
+
+In SQL, the keywords **`TOP`**, **`LIMIT`**, and **`ROWNUM`** are used to limit the number of rows returned in a query result set.
+
+- **`TOP`** is used in Microsoft SQL Server and Sybase databases to limit the number of rows returned by a query. The basic syntax is:
+    
+    ```
+    SELECT TOP n column1, column2, ...
+    FROM table_name
+    WHERE condition;
+    
+    ```
+    
+    Here, **`n`** is the number of rows to be returned, **`column1`**, **`column2`**, etc. are the names of the columns to be returned, **`table_name`** is the name of the table to query, and **`condition`** is an optional condition to filter the results.
+    
+- **`LIMIT`** is used in MySQL, PostgreSQL, SQLite, and some other databases to limit the number of rows returned by a query. The basic syntax is:
+    
+    ```
+    SELECT column1, column2, ...
+    FROM table_name
+    WHERE condition
+    LIMIT n;
+    
+    ```
+    
+    Here, **`n`** is the number of rows to be returned, **`column1`**, **`column2`**, etc. are the names of the columns to be returned, **`table_name`** is the name of the table to query, and **`condition`** is an optional condition to filter the results.
+    
+- **`ROWNUM`** is used in Oracle databases to limit the number of rows returned by a query. The basic syntax is:
+    
+    ```
+    SELECT column1, column2, ...
+    FROM (
+      SELECT column1, column2, ...
+      FROM table_name
+      WHERE condition
+      ORDER BY column_name
+    )
+    WHERE ROWNUM <= n;
+    
+    ```
+    
+    Here, **`n`** is the number of rows to be returned, **`column1`**, **`column2`**, etc. are the names of the columns to be returned, **`table_name`** is the name of the table to query, **`condition`** is an optional condition to filter the results, and **`column_name`** is the name of the column used to sort the results.
+    
+
+For example, suppose we have a table called "employees" with columns "id", "name", and "salary". To return the top 10 highest paid employees in Microsoft SQL Server, we can use the following query:
+
+```
+SELECT TOP 10 name, salary
+FROM employees
+ORDER BY salary DESC;
+
+```
+
+To achieve the same result in MySQL, we can use the following query:
+
+```
+SELECT name, salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 10;
+
+```
+
+To achieve the same result in Oracle, we can use the following query:
+
+```
+SELECT name, salary
+FROM (
+  SELECT name, salary
+  FROM employees
+  ORDER BY salary DESC
+)
+WHERE ROWNUM <= 10;
+
+```
+
+## Day 77- **SQL SET**
+
+In SQL, the **`SET`** keyword is used to update the values of one or more columns in a table. The basic syntax of an **`UPDATE`** statement with **`SET`** keyword is as follows:
+
+```
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+```
+
+Here, **`table_name`** is the name of the table to update, **`column1`**, **`column2`**, etc. are the names of the columns to update, **`value1`**, **`value2`**, etc. are the new values for the corresponding columns, and **`condition`** is an optional condition to filter the rows that will be updated.
+
+For example, suppose we have a table called "employees" with columns "id", "name", "salary", and "department". To update the salary of all employees in the "sales" department by a fixed percentage, we can use the following query:
+
+```
+UPDATE employees
+SET salary = salary * 1.1
+WHERE department = 'sales';
+
+```
+
+This will update the "salary" column of all rows in the "employees" table where the "department" column is equal to "sales" by multiplying the current value by 1.1.
+
+## Day 78 - **MySQL CONCAT() Function**
+
+In MySQL, the **`CONCAT()`** function is used to concatenate two or more strings into a single string. The basic syntax of the **`CONCAT()`** function is as follows:
+
+```
+CONCAT(string1, string2, ...)
+
+```
+
+Here, **`string1`**, **`string2`**, etc. are the strings to concatenate. You can pass any number of strings as arguments to the **`CONCAT()`** function, separated by commas.
+
+For example, suppose we have a table called "students" with columns "first_name" and "last_name". To concatenate the first and last names into a single column called "full_name", we can use the following query:
+
+```
+SELECT CONCAT(first_name, ' ', last_name) AS full_name
+FROM students;
+
+```
+
+This will return a result set with a single column called "full_name", where each row contains the concatenated value of the "first_name" and "last_name" columns, separated by a space.
+
+You can also use the **`CONCAT()`** function with other MySQL string functions, such as **`UPPER()`** or **`LOWER()`**, to manipulate the input strings before concatenation. For example:
+
+```
+SELECT CONCAT(UPPER(first_name), ' ', LOWER(last_name)) AS full_name
+FROM students;
+
+```
+
+This will return a result set where the "first_name" column is converted to uppercase and the "last_name" column is converted to lowercase before concatenation.
+
+## Day 79 - **SQL FOREIGN KEY Constraint**
+
+In SQL, a FOREIGN KEY constraint is a way to enforce referential integrity between two tables. It ensures that the data in the child table (the table containing the foreign key) always refers to valid data in the parent table (the table being referred to by the foreign key).
+
+To create a FOREIGN KEY constraint, you need to specify the column(s) in the child table that will contain the foreign key, as well as the parent table and column(s) that the foreign key will refer to. Here's an example:
+
+```
+CREATE TABLE orders (
+   order_id INT PRIMARY KEY,
+   customer_id INT,
+   order_date DATE,
+   FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+```
+
+In this example, we're creating a table called "orders" with an order_id, customer_id, and order_date column. The customer_id column is a foreign key that references the customers table. The REFERENCES keyword specifies the parent table and column that the foreign key refers to.
+
+With this FOREIGN KEY constraint in place, we can ensure that no orders are placed for non-existent customers. If a customer is deleted from the customers table, any orders that reference that customer will also be deleted (or updated, depending on the ON DELETE behavior specified in the constraint).
+
+In summary, the FOREIGN KEY constraint is an important tool for maintaining data integrity in a database. It allows you to create relationships between tables and ensure that those relationships are always valid.
+
+## Day 80 - Stored Procedures
+
+Stored Procedures: These are pre-compiled SQL statements that are stored in the database and can be executed multiple times. They are useful in reducing network traffic by allowing the client to execute a single procedure call instead of multiple SQL statements. Stored procedures can also be used to enforce business rules and provide a level of security by controlling data access.
+
+```
+CREATE PROCEDURE spGetCustomers
+AS
+BEGIN
+    SELECT * FROM Customers
+END
+
+EXEC spGetCustomers
+
+```
+
+In this example, a stored procedure named **`spGetCustomers`** is created to retrieve all customers from the **`Customers`** table. The procedure is then executed using the **`EXEC`** statement.
+
+## Day 81 - Triggers
+
+These are database objects that are automatically executed in response to specific events, such as an update or insert operation on a table. Triggers can be used to enforce data integrity constraints, audit data changes, or send notifications when certain events occur.
+
+```
+CREATE TRIGGER trUpdateCustomer
+ON Customers
+AFTER UPDATE
+AS
+BEGIN
+    -- Perform some action after a customer record is updated
+END
+
+```
+
+In this example, a trigger named **`trUpdateCustomer`** is created to execute some action after a record in the **`Customers`** table is updated. The specific action would be defined within the **`BEGIN`** and **`END`** statements.
+
+## Day 82 - Views
+
+These are virtual tables that are created based on the result set of a query. Views can be used to simplify complex queries by hiding the underlying complexity, or to provide a level of security by controlling data access.
+
+```
+CREATE VIEW vwTopCustomers
+AS
+SELECT TOP 10 * FROM Customers
+ORDER BY Sales DESC
+
+SELECT * FROM vwTopCustomers
+
+```
+
+In this example, a view named **`vwTopCustomers`** is created to retrieve the top 10 customers from the **`Customers`** table based on their sales. The view is then queried using a standard **`SELECT`** statement.
+
+## Day 83 - User-Defined Functions
+
+These are custom functions that can be created to perform specific tasks in SQL. User-defined functions can be used to simplify complex queries or to perform calculations on data.
+
+```
+CREATE FUNCTION fnGetOrderTotal (@OrderID INT)
+RETURNS DECIMAL(18,2)
+AS
+BEGIN
+    DECLARE @Total DECIMAL(18,2)
+    SELECT @Total = SUM(OrderAmount) FROM OrderDetails WHERE OrderID = @OrderID
+    RETURN @Total
+END
+
+SELECT OrderID, fnGetOrderTotal(OrderID) AS OrderTotal FROM Orders
+
+```
+
+In this example, a user-defined function named **`fnGetOrderTotal`** is created to retrieve the total amount of an order based on the order ID. The function is then used in a query to retrieve the total amount for each order.
+
+## Day 84 - Cursors
+
+These are database objects that allow you to traverse through the result set of a query one row at a time. Cursors can be useful when you need to perform complex processing on each row of a result set.
+
+```
+DECLARE @CustomerID INT
+DECLARE @CustomerName VARCHAR(50)
+
+DECLARE customer_cursor CURSOR FOR
+SELECT CustomerID, CustomerName FROM Customers
+
+OPEN customer_cursor
+
+FETCH NEXT FROM customer_cursor INTO @CustomerID, @CustomerName
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    PRINT 'Customer ID: ' + CAST(@CustomerID AS VARCHAR(10)) + ', Name: ' + @CustomerName
+    FETCH NEXT FROM customer_cursor INTO @CustomerID, @CustomerName
+END
+
+CLOSE customer_cursor
+DEALLOCATE customer_cursor
+
+```
+
+In this example, a cursor named **`customer_cursor`** is used to retrieve the **`CustomerID`** and **`CustomerName`** from the **`Customers`** table. The cursor is then used in a loop to print out the ID and name of each customer.
+
+## Day 85 - Transactions
+
+These are a series of SQL statements that are executed as a single, atomic operation. Transactions are used to ensure data integrity by ensuring that either all of the SQL statements in the transaction are executed, or none of them are.
+
+```
+BEGIN TRANSACTION
+UPDATE Customers SET CreditLimit = CreditLimit + 5000 WHERE CustomerID = 1
+INSERT INTO Orders (CustomerID, OrderDate, OrderAmount) VALUES (1, GETDATE(), 1000)
+COMMIT TRANSACTION
+
+```
+
+In this example, a transaction is used to update the credit limit of a customer and insert a new order record into the **`Orders`** table. The **`BEGIN TRANSACTION`**, **`COMMIT TRANSACTION`**, and **`ROLLBACK TRANSACTION`** statements are used to control the transaction.
+
+## Day 86 - Indexes
+
+These are database objects that are used to improve the performance of queries by providing faster access to data. Indexes can be created on one or more columns of a table, and can be used to speed up searches, sorts, and joins.
+
+```
+CREATE INDEX idxCustomerName ON Customers (CustomerName)
+
+SELECT * FROM Customers WHERE CustomerName = 'ABC Company'
+
+```
+
+In this example, an index named **`idxCustomerName`** is created on the **`CustomerName`** column of the **`Customers`** table. The index is then used to speed up a query that retrieves all customers with the name "ABC Company".
+
+## Day 87 - Stored Procedures
+
+```
+CREATE PROCEDURE spGetSalesByRegion (@RegionName NVARCHAR(50))
+AS
+BEGIN
+    SELECT SUM(SalesAmount) AS TotalSales, YEAR(SalesDate) AS SalesYear
+    FROM Sales
+    WHERE RegionName = @RegionName
+    GROUP BY YEAR(SalesDate)
+END
+
+EXEC spGetSalesByRegion 'North America'
+
+```
+
+In this example, a stored procedure named **`spGetSalesByRegion`** is created to retrieve the total sales for a specified region and group the results by year. The procedure accepts a parameter **`@RegionName`** which is used in the **`WHERE`** clause to filter the data.
+
+## Day 88 - Triggers
+
+```
+CREATE TRIGGER trUpdateProductInventory
+ON ProductInventory
+AFTER UPDATE
+AS
+BEGIN
+    UPDATE Products
+    SET UnitsInStock = UnitsInStock + (INSERTED.Quantity - DELETED.Quantity)
+    FROM Products
+    INNER JOIN INSERTED ON Products.ProductID = INSERTED.ProductID
+    INNER JOIN DELETED ON Products.ProductID = DELETED.ProductID
+END
+
+```
+
+In this example, a trigger named **`trUpdateProductInventory`** is created to update the **`UnitsInStock`** column in the **`Products`** table whenever the **`ProductInventory`** table is updated. The **`INSERTED`** and **`DELETED`** tables are used to retrieve the old and new values of the **`Quantity`** column in the **`ProductInventory`** table.
+
+## Day 89 - Views
+
+```
+CREATE VIEW vwProductSales
+AS
+SELECT Products.ProductName, SUM(OrderDetails.Quantity) AS TotalSales
+FROM Products
+INNER JOIN OrderDetails ON Products.ProductID = OrderDetails.ProductID
+GROUP BY Products.ProductName
+HAVING SUM(OrderDetails.Quantity) > 1000
+
+SELECT * FROM vwProductSales
+
+```
+
+In this example, a view named **`vwProductSales`** is created to retrieve the total sales for each product and filter the results to only include products with total sales greater than 1000. The view is then queried using a standard **`SELECT`** statement.
+
+## Day 90 - User-Defined Functions
+
+```
+CREATE FUNCTION fnGetProductPrice (@ProductID INT)
+RETURNS DECIMAL(18,2)
+AS
+BEGIN
+    DECLARE @Price DECIMAL(18,2)
+    SELECT @Price = Price * (1 - Discount) FROM Products WHERE ProductID = @ProductID
+    RETURN @Price
+END
+
+SELECT ProductName, fnGetProductPrice(ProductID) AS DiscountedPrice
+FROM Products
+
+```
+
+In this example, a user-defined function named **`fnGetProductPrice`** is created to retrieve the discounted price of a product based on the product ID. The function is then used in a query to retrieve the discounted price for each product.
+
+## Day 91 - Cursors
+
+```
+DECLARE @OrderID INT
+DECLARE @ProductID INT
+DECLARE @Quantity INT
+
+DECLARE order_cursor CURSOR FOR
+SELECT OrderID, ProductID, Quantity FROM OrderDetails
+
+OPEN order_cursor
+
+FETCH NEXT FROM order_cursor INTO @OrderID, @ProductID, @Quantity
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    IF @Quantity > 10
+    BEGIN
+        PRINT 'Order ID: ' + CAST(@OrderID AS VARCHAR(10)) + ', Product ID: ' + CAST(@ProductID AS VARCHAR(10)) + ', Quantity: ' + CAST(@Quantity AS VARCHAR(10))
+    END
+    FETCH NEXT FROM order_cursor INTO @OrderID, @ProductID, @Quantity
+END
+
+CLOSE order_cursor
+DEALLOCATE order_cursor
+
+```
+
+In this example, a cursor named **`order_cursor`** is used to retrieve the **`OrderID`**, `
+
+## Day 92 - What is SQL and what is it used for?
+
+SQL stands for Structured Query Language, and it is a programming language used to manage relational databases. SQL is used to create, modify, and query databases, as well as to perform various tasks such as data manipulation, data definition, and data control.
+
+## Day 93 - What is the difference between SQL and NoSQL databases?
+
+SQL databases are relational databases that store data in tables with predefined schema, while NoSQL databases are non-relational databases that store data in flexible document formats. SQL databases are better suited for structured data that requires transactions, while NoSQL databases are better suited for unstructured data that requires scalability and flexibility.
+
+## Day 94 - What is a primary key and how is it used in SQL?
+
+A primary key is a unique identifier for a record in a table, and it is used to enforce data integrity and facilitate data retrieval. A primary key is defined as a column or a combination of columns that uniquely identifies each row in a table.
+
+## Day 95 - What is a foreign key and how is it used in SQL?
+
+A foreign key is a column or a combination of columns in a table that references the primary key of another table. A foreign key is used to establish relationships between tables and enforce referential integrity.
+
+## Day 96 - What is a stored procedure and how is it used in SQL?
+
+A stored procedure is a precompiled set of SQL statements that are stored in a database and can be executed repeatedly. Stored procedures can be used to improve performance, enhance security, and simplify database management.
+
+## Day 97 - What is a trigger and how is it used in SQL?
+
+A trigger is a database object that is executed automatically in response to certain events, such as data modification, insertion, or deletion. Triggers can be used to enforce business rules, audit data changes, and maintain data consistency.
+
+## Day 98 - What is a view and how is it used in SQL?
+
+A view is a virtual table that is based on the result of a SQL query, and it is used to simplify complex queries and hide the underlying complexity of the database schema. Views can be used to retrieve data from multiple tables, filter and aggregate data, and enforce security policies.
+
+## Day 99 - What is a view and how is it used in SQL?
+
+A view is a virtual table that is based on the result of a SQL query, and it is used to simplify complex queries and hide the underlying complexity of the database schema. Views can be used to retrieve data from multiple tables, filter and aggregate data, and enforce security policies.
+
+## Day 100 - What is normalization and why is it important in SQL?
+
+Normalization is the process of organizing data in a database in a way that reduces redundancy and dependency, and ensures data consistency and integrity. Normalization is important in SQL because it helps to eliminate data inconsistencies, reduces data redundancy, and facilitates data retrieval and maintenance.
